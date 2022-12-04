@@ -3,7 +3,10 @@ package com.foxbill.interview.sort;
 import java.util.Arrays;
 
 /**
- * 冒泡
+ * 冒泡：
+ * 文字描述：
+ *  1.依次比较数组中相邻两个元素大小，若a[j] > a[j+1]，则交换两个元素，两两都比较一遍称为一轮冒泡，结果是让最大的元素排至最后。
+ *  2.重复以上步骤，直至整个数组有序。
  */
 public class BubbleSort {
     public static void main(String[] args) {
