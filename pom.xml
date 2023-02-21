@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>interview-basic</module>
+        <module>spring5-source</module>
     </modules>
 
     <properties>
