@@ -2,6 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--配置User对象创建-->
-    <bean id="user" class="com.foxbill.spring5.User"></bean>
+    <!--配置SomeService对象-->
+    <bean id="someService" class="com.foxbill.spring5.service.impl.SomeServiceImpl"></bean>
+    <!--配置非自定义类对象-->
+    <bean id="myDate" class="java.util.Date" />
+
+    <bean id="mySchool" class="com.foxbill.spring5.pojo.School">
+        <property name="name" value="南航" />
+        <property name="address" value="南昌" />
+    </bean>
 </beans>

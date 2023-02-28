@@ -31,6 +31,9 @@ public class ArrayListTest {
             删除元素
          */
         list.remove(1);
+
+        Object o;
+        String s;
     }
 
     /**
