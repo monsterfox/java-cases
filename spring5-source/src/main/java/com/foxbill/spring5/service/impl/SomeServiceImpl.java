@@ -4,7 +4,7 @@ import com.foxbill.spring5.service.SomeService;
 
 public class SomeServiceImpl implements SomeService {
     public SomeServiceImpl() {
-        System.out.println("SomeServiceImpl无参构造");
+        //System.out.println("SomeServiceImpl无参构造");
     }
 
 

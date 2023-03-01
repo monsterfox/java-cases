@@ -1,8 +1,7 @@
 package com.foxbill.spring5.pojo;
 
-public class Student {
+public class Leader {
     private String name;
-    private int age;
     private School school;
 
     public String getName() {
@@ -11,14 +10,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public School getSchool() {
@@ -31,9 +22,8 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Leader{" +
                 "name='" + name + '\'' +
-                ", age=" + age +
                 ", school=" + school +
                 '}';
     }

@@ -1,37 +1,24 @@
 package com.foxbill.spring5.pojo;
 
-public class Student {
+public class Teacher {
     private String name;
     private int age;
     private School school;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Teacher(String name, int age) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
         this.age = age;
     }
 
-    public School getSchool() {
-        return school;
-    }
-
-    public void setSchool(School school) {
+    public Teacher(String name, int age, School school) {
+        this.name = name;
+        this.age = age;
         this.school = school;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Teacher{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", school=" + school +
