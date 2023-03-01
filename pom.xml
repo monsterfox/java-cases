@@ -11,6 +11,7 @@
     <modules>
         <module>interview-basic</module>
         <module>spring5-source</module>
+        <module>spring-anno</module>
     </modules>
 
     <properties>
