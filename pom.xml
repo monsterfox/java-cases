@@ -13,6 +13,8 @@
         <module>spring-ioc-xml</module>
         <module>spring-ioc-anno</module>
         <module>spring-aop-leadinto</module>
+        <module>spring-aop-leadinto1</module>
+        <module>spring-aspectj-before</module>
     </modules>
 
     <properties>
