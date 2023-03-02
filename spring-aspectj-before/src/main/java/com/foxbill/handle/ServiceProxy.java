@@ -14,14 +14,14 @@ public class ServiceProxy implements SomeService{
     MyAspect aspect = new MyAspect();
 
     @Override
-    public void doSome(){
-        aspect.myBefore();
-        target.doSome();
+    public void doSome(String name,int age){
+        aspect.myBefore(null);
+        target.doSome(name,age);
     }
 
     @Override
-    public void doOther() {
-        aspect.myBefore();
-        target.doOther();
+    public String doOther(String name, int age) {
+        aspect.myBefore(null);
+        return target.doOther(name,age);
     }
 }

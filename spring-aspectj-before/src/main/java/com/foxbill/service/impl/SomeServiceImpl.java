@@ -5,12 +5,13 @@ import com.foxbill.service.SomeService;
 
 public class SomeServiceImpl implements SomeService {
     @Override
-    public void doSome() {
+    public void doSome(String name,int age) {
         System.out.println("执行业务方法doSome");
     }
 
     @Override
-    public void doOther() {
-        System.out.println("执行业务方法doOther");
+    public String doOther(String name, int age) {
+        System.out.println("执行业务方法doOther"+":"+name+","+age);
+        return "abcd";
     }
 }

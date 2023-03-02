@@ -18,8 +18,7 @@ public class MyAspectjTest {
 
         SomeService someService = (SomeService) ctx.getBean("someService");//基于Aspectj 获取的是自动生成的代理对象
         System.out.println(someService.getClass().getName());//com.sun.proxy.$Proxy6
-        someService.doSome();
-        someService.doOther();
+        someService.doSome("张三",18);
     }
 
     /**
@@ -29,8 +28,21 @@ public class MyAspectjTest {
     public void test02(){
         SomeService someService = new ServiceProxy();//创建自定义的代理对象
         System.out.println(someService.getClass().getName());
-        someService.doSome();
+        someService.doSome("张三",18);
     }
 
 
+    /**
+     * 后置通知
+     */
+    @Test
+    public void test03(){
+        String config = "applicationContext.xml";
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(config);
+
+        SomeService someService = (SomeService) ctx.getBean("someService");//基于Aspectj 获取的是自动生成的代理对象
+        System.out.println(someService.getClass().getName());//com.sun.proxy.$Proxy6
+
+        someService.doOther("李四",20);
+    }
 }
