@@ -19,9 +19,4 @@ public class ServiceProxy implements SomeService{
         target.doSome(name,age);
     }
 
-    @Override
-    public String doOther(String name, int age) {
-        aspect.myBefore(null);
-        return target.doOther(name,age);
-    }
 }

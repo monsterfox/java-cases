@@ -9,9 +9,4 @@ public class SomeServiceImpl implements SomeService {
         System.out.println("执行业务方法doSome");
     }
 
-    @Override
-    public String doOther(String name, int age) {
-        System.out.println("执行业务方法doOther"+":"+name+","+age);
-        return "abcd";
-    }
 }
