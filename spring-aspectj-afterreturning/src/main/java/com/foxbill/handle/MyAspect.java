@@ -27,6 +27,8 @@ public class MyAspect {
      * @param result
      */
     @AfterReturning(value = "execution(* *..SomeServiceImpl.doOther(..))",returning = "result")
+//    public void myAfterReturning(JoinPoint jp,Object result){
+//        System.out.println(jp.getSignature());
     public void myAfterReturning(Object result){
         //修改目标方法的执行结果
         if(result != null){
