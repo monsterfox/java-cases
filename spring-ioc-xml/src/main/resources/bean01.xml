@@ -2,40 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--配置SomeService对象-->
-    <bean id="someService" class="com.foxbill.spring5.service.impl.SomeServiceImpl"></bean>
-    <!--配置非自定义类对象-->
-    <bean id="myDate" class="java.util.Date" />
 
-    <!--set注入：（1）普通类型属性  value-->
-    <bean id="school" class="com.foxbill.spring5.pojo.School">
-        <property name="name" value="南航" />
-        <property name="address" value="南昌" />
-    </bean>
-
-    <!--set注入：（2）引用类型属性  ref-->
-    <bean id="student" class="com.foxbill.spring5.pojo.Student">
-        <property name="name" value="李斯" />
-        <property name="age" value="23" />
-        <property name="school" ref="school" />
-    </bean>
-
-    <!--构造注入：（1）普通类型属性  value  （2）引用类型属性  ref-->
-    <bean id="teacher" class="com.foxbill.spring5.pojo.Teacher">
-        <constructor-arg name="name" value="蔡元培" />
-        <constructor-arg name="age" value="50" />
-        <constructor-arg name="school" ref="school" />
-    </bean>
-
-    <!--引用类型自动注入：autowire:byName/byType
-        byName: 同名（bean属性和bean的id相同）同源
-        byType: 同源（同源表示属于同一类的对象或者子类/接口对象）
-    -->
-<!--    <bean id="leader" class="com.foxbill.spring5.pojo.Leader" autowire="byName">
-        <property name="name" value="蔡元培院长" />
-    </bean>-->
-
-    <bean id="leader" class="com.foxbill.spring5.pojo.Leader" autowire="byType">
-        <property name="name" value="蔡元培院长" />
-    </bean>
+    <import resource="spring-basic.xml" />
+    <import resource="spring-bean.xml" />
 </beans>

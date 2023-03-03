@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <import resource="spring-basic.xml" />
-    <import resource="spring-bean.xml" />
+    <!--配置SomeService对象-->
+    <bean id="someService" class="com.foxbill.spring5.service.impl.SomeServiceImpl"></bean>
+    <!--配置非自定义类对象-->
+    <bean id="myDate" class="java.util.Date" />
 </beans>
