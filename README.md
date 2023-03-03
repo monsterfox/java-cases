@@ -12,6 +12,7 @@
 7. spring-aspectj-around
 8. spring-aspectj-afterthrowing
 9. spring-aspectj-after
+10. spring-aspectj-pointcut
 
 
 
