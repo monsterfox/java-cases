@@ -15,6 +15,12 @@
         <module>spring-aop-leadinto</module>
         <module>spring-aop-leadinto1</module>
         <module>spring-aspectj-before</module>
+        <module>spring-aspectj-afterreturning</module>
+        <module>spring-aspectj-around</module>
+        <module>spring-aspectj-afterthrowing</module>
+        <module>spring-aspectj-after</module>
+        <module>spring-aspectj-pointcut</module>
+        <module>spring-mybatis</module>
     </modules>
 
     <properties>
