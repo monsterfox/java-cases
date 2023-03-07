@@ -13,6 +13,9 @@
 8. spring-aspectj-afterthrowing
 9. spring-aspectj-after
 10. spring-aspectj-pointcut
+11. spring-mybatis
+12. spring-trans-sale 本例要实现购买商品，模拟用户下订单，向订单表添加销售记录，从商品表减少库存。
+13. 
 
 
 

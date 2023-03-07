@@ -21,6 +21,7 @@
         <module>spring-aspectj-after</module>
         <module>spring-aspectj-pointcut</module>
         <module>spring-mybatis</module>
+        <module>spring-trans-sale</module>
     </modules>
 
     <properties>
