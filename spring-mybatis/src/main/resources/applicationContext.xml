@@ -22,7 +22,7 @@
         <property name="configLocation" value="classpath:mybatis.xml" />
     </bean>
 
-    <!--注册Mapper扫描配置器-->
+    <!--注册Mapper扫描配置器 - 创建dao代理对象-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
         <property name="basePackage" value="com.foxbill.dao" />
@@ -32,5 +32,7 @@
     <bean id="studentService" class="com.foxbill.service.impl.StudentServiceImpl">
         <property name="studentDao" ref="studentDao" />
     </bean>
+
+    <!--dataSource ====注入==＞＞ sqlSessionFactory ====注入==＞＞ dao代理对象 ====注入==＞＞ service对象-->
 
 </beans>
