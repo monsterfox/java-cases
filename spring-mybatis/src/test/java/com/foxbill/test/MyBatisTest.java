@@ -40,11 +40,11 @@ public class MyBatisTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(config);
 
         StudentDao studentDao = (StudentDao) ctx.getBean("studentDao");
-
+        System.out.println(studentDao);
         Student student = new Student();
         student.setName("李四");
         student.setAge(30);
 
-        studentDao.insertStudent(student);
+//        studentDao.insertStudent(student);
     }
 }
