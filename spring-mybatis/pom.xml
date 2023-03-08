@@ -62,6 +62,20 @@
 
 
     <build>
+        <!--把java目录中的XxxMapper.xml拷贝到classpath中
+            如果没有这个配置，则需要将映射文件放到resources中对应的文件目录中！
+        -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
