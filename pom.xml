@@ -25,6 +25,7 @@
         <module>spring-trans-sale-annotation</module>
         <module>spring-trans-sale-aspectj</module>
         <module>spring-web01</module>
+        <module>spring-web02-listener</module>
     </modules>
 
     <properties>
