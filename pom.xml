@@ -27,6 +27,7 @@
         <module>spring-web01</module>
         <module>spring-web02-listener</module>
         <module>springmvc-request-param</module>
+        <module>spring-ssm</module>
     </modules>
 
     <properties>
