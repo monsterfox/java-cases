@@ -12,9 +12,22 @@
         <module>interview-basic</module>
         <module>spring-ioc-xml</module>
         <module>spring-ioc-anno</module>
-        <module>spring-aop-leadinto</module>
         <module>spring-aop-leadinto1</module>
+        <module>spring-aop-leadinto2</module>
         <module>spring-aspectj-before</module>
+        <module>spring-aspectj-afterreturning</module>
+        <module>spring-aspectj-around</module>
+        <module>spring-aspectj-afterthrowing</module>
+        <module>spring-aspectj-after</module>
+        <module>spring-aspectj-pointcut</module>
+        <module>spring-mybatis</module>
+        <module>spring-trans-sale</module>
+        <module>spring-trans-sale-annotation</module>
+        <module>spring-trans-sale-aspectj</module>
+        <module>spring-web01</module>
+        <module>spring-web02-listener</module>
+        <module>springmvc-request-param</module>
+        <module>spring-ssm</module>
     </modules>
 
     <properties>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!--
+        Spring 为该监听器接口定义了一个实现类 ContextLoaderListener，完成
+        了两个很重要的工作：创建容器对象，并将容器对象放入到了 ServletContext
+        的空间中。
+
+        该监听器默认加载/WEB-INF/applicationContext.xml这个配置文件
+        如果需要灵活的自定义，可以通过<context-param>来配置
+    -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+</web-app>
