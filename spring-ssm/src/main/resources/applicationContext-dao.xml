@@ -21,6 +21,7 @@
         <property name="configLocation" value="classpath:mybatis-config.xml" />
         <property name="typeAliasesPackage" value="com.foxbill.domain" />
     </bean>
+
     <!--配置扫描Mapper-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.foxbill.mapper" />
