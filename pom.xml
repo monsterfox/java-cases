@@ -29,6 +29,7 @@
         <module>springmvc-request-param</module>
         <module>spring-ssm</module>
         <module>springmvc-interceptor</module>
+        <module>springmvc-fileupload</module>
     </modules>
 
     <properties>
