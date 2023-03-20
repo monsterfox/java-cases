@@ -6,19 +6,26 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 @Controller
 public class TestController {
 
     @RequestMapping("/basicParam")
-    public String basicParam(String name,int age){
+    public String basicParam(String name, int age, Model model, Map map, ModelMap modelMap, HttpServletRequest request){
         System.out.println(name + ":" +age);
+        model.addAttribute("model-name",name);
+        map.put("map-name",name);
+        modelMap.addAttribute("modelMap-name",name);
+        modelMap.put("modelMap-age",age);
+        request.setAttribute("req-name",name);
         return "param";
     }
 
