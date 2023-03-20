@@ -9,6 +9,7 @@
 
     <!--声明自动代理生成器，目的是创建目标对象的代理
           编码技巧：直接写前缀后面的部分，可以自动导入命名空间的约束
+          proxy-target-class=true表示使用CGLIB动态代理，默认为false,表示针对有接口的类使用JDK动态代理，如果没有接口，使用CGLIB动态代理
     -->
-    <aop:aspectj-autoproxy />
+    <aop:aspectj-autoproxy proxy-target-class="true"  />
 </beans>
