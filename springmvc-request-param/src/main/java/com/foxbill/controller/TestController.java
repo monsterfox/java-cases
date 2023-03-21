@@ -19,13 +19,8 @@ import java.util.Map;
 public class TestController {
 
     @RequestMapping("/basicParam")
-    public String basicParam(String name, int age, Model model, Map map, ModelMap modelMap, HttpServletRequest request){
+    public String basicParam(String name, int age){
         System.out.println(name + ":" +age);
-        model.addAttribute("model-name",name);
-        map.put("map-name",name);
-        modelMap.addAttribute("modelMap-name",name);
-        modelMap.put("modelMap-age",age);
-        request.setAttribute("req-name",name);
         return "param";
     }
 
@@ -94,4 +89,17 @@ public class TestController {
         System.out.println(date);
         return "param";
     }
+
+    /**********************************从Web后端携带数据到Web前端**********************************/
+    @RequestMapping("/showParam")
+    public String showParam(String name, int age, Model model, Map map, ModelMap modelMap, HttpServletRequest request){
+        System.out.println(name + ":" +age);
+        model.addAttribute("modelName",name);
+        map.put("mapName",name);
+        modelMap.addAttribute("modelMapName",name);
+        modelMap.put("modelMap-age",age);
+        request.setAttribute("reqName",name);
+        return "showParam";
+    }
+
 }

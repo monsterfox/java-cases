@@ -41,5 +41,15 @@
         {'name':'张三','age':'24'}
     --%>
     <a href="${pageContext.request.contextPath}/jsonParam" >6.发送JSON数据</a>
+    <hr>
+    <h1>从Web后端携带数据到Web前端</h1>
+    <form action="${pageContext.request.contextPath}/showParam" method="post">
+        <fieldset>
+            <legend>1.携带数据</legend>
+            姓名：<input type="text" name="name" /> <br />
+            年龄：<input type="text" name="age" /> <br />
+            <input type="submit" value="提交">
+        </fieldset>
+    </form>
 </body>
 </html>
