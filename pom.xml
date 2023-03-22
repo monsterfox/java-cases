@@ -31,6 +31,8 @@
         <module>springmvc-interceptor</module>
         <module>springmvc-fileupload</module>
         <module>spring-ssm-pure-annotation</module>
+        <module>spring-aop-leadinto3</module>
+        <module>spring-aop-leadinto4</module>
     </modules>
 
     <properties>
