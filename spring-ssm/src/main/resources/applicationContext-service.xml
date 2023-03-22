@@ -9,11 +9,14 @@
 <!--    <context:component-scan base-package="com.foxbill.service" />-->
 
 
-    <!--AOP -->
+    <!--  - - - - - - - - - - - - - - - AOP - - - - - - - - - - - - - - - -->
+
+    <!--目标类-->
     <bean id="userService" class="com.foxbill.service.impl.UserServiceImpl" />
+    <!--通知类-->
     <bean id="myAspect" class="com.foxbill.service.MyAspect" />
 
-    <!--AOP配置-->
+    <!--切面配置：AOP配置（在切入点织入通知）-->
     <aop:config>
         <aop:pointcut id="pc" expression="execution(* com.foxbill.service.impl.UserServiceImpl.*(..))" />
         <aop:aspect ref="myAspect">
@@ -21,13 +24,13 @@
         </aop:aspect>
     </aop:config>
 
-
+    <!--  - - - - - - - - - - - - - - - 事务 - - - - - - - - - - - - - - - -->
 
     <!--事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
-    <!--配置事务切面-->
+    <!--通知配置：配置事务通知-->
     <tx:advice id="myAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="*select*" read-only="true"/>
@@ -51,7 +54,7 @@
             <tx:method name="*" propagation="SUPPORTS"/>
         </tx:attributes>
     </tx:advice>
-    <!--切面配置：切入点配置+织入-->
+    <!--切面配置：切入点配置+织入通知（在切入点pointcut织入通知advice）-->
     <aop:config>
         <aop:pointcut id="myPt" expression="execution(* *..service.*.*(..))"/>
         <aop:advisor advice-ref="myAdvice" pointcut-ref="myPt" />
