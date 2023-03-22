@@ -13,7 +13,7 @@
 
     <!--视图解析器：如果用ajax发送请求，使用VUE则可以不配置-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/page" />
+        <property name="prefix" value="/WEB-INF/page/" />
         <property name="suffix" value=".jsp" />
     </bean>
 </beans>

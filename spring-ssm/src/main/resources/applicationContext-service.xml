@@ -6,7 +6,22 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--包扫描-->
-    <context:component-scan base-package="com.foxbill.service" />
+<!--    <context:component-scan base-package="com.foxbill.service" />-->
+
+
+    <!--AOP -->
+    <bean id="userService" class="com.foxbill.service.impl.UserServiceImpl" />
+    <bean id="myAspect" class="com.foxbill.service.MyAspect" />
+
+    <!--AOP配置-->
+    <aop:config>
+        <aop:pointcut id="pc" expression="execution(* com.foxbill.service.impl.UserServiceImpl.*(..))" />
+        <aop:aspect ref="myAspect">
+            <aop:around method="beforeAdvice" pointcut-ref="pc" />
+        </aop:aspect>
+    </aop:config>
+
+
 
     <!--事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -19,6 +34,7 @@
             <tx:method name="*find*" read-only="true"/>
             <tx:method name="*search*" read-only="true"/>
             <tx:method name="*get*" read-only="true"/>
+            <tx:method name="*query*" read-only="true"/>
 
             <tx:method name="*add*" propagation="REQUIRED" />
             <tx:method name="*insert*" propagation="REQUIRED" />

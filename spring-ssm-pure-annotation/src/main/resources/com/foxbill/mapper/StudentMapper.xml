@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.foxbill.mapper.StudentMapper">
+<mapper namespace="com.foxbill.mapper.UserMapper">
 <!--    int insertStudent(Student student);
     int deleteStudent(int id);
     int updateStudent(Student student);-->

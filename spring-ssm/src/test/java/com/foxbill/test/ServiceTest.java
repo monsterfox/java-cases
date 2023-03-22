@@ -1,7 +1,7 @@
 package com.foxbill.test;
 
-import com.foxbill.domain.Student;
-import com.foxbill.service.StudentService;
+import com.foxbill.domain.User;
+import com.foxbill.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +15,16 @@ import java.util.List;
 public class ServiceTest {
 
     @Autowired
-    private StudentService studentService;
+    private UserService userService;
 
     @Test
     public void test01(){
-        List<Student> students = studentService.queryStudents();
-        students.forEach(student -> System.out.println(student));
+        List<User> users = userService.queryUsers();
+        users.forEach(user -> System.out.println(user));
     }
 
     @Test
     public void test02(){
-        studentService.dropStudent(13);
+        userService.dropUser(13);
     }
 }

@@ -1,15 +1,27 @@
 package com.foxbill.config;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @PropertySource(value = "classpath:jdbc.properties")
 @ComponentScan(value = {"com.foxbill.service","com.foxbill.controller"})
-//@ComponentScan(value = {"com.foxbill.config","com.foxbill.service","com.foxbill.controller"})  //若使用@ComponentScan，则JdbcConfig需要加@Configuration
-@Import({JdbcConfig.class,MyBatisConfig.class})   //若使用@Import导入，则JdbcConfig不需要加@Configuration
+/*
+    导入其他配置类-方式二：
+    若使用@ComponentScan，则JdbcConfig需要加@Configuration
+ */
+//@ComponentScan(value = {"com.foxbill.config","com.foxbill.service","com.foxbill.controller"})
+
+/*
+    导入其他配置类-方式一：
+    若使用@Import导入，则JdbcConfig不需要加@Configuration
+ */
+@Import({JdbcConfig.class,MyBatisConfig.class})
+@EnableAspectJAutoProxy  //AOP Aspectj注解驱动 <aop:aspectj-autoproxy proxy-target-class="true"  />
+@EnableTransactionManagement  //事务注解驱动 <tx:annotation-driven transaction-manager="transactionManager" />
+
+@EnableWebMvc  // 开启mvc注解驱动 <mvc:annotation-driven/>
 public class SpringConfig {
 
 /*    @Value("${jdbc.driverClassName}")
