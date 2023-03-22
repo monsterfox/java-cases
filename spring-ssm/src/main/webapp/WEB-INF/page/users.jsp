@@ -24,6 +24,7 @@
 <body>
 <div class="container mt-3">
     <h2>用户列表</h2>
+    <a class="btn btn-primary" href="${pageContext.request.contextPath}/toAddUser">添加用户</a>
     <table class="table">
         <thead class="table-dark">
         <tr>
@@ -42,8 +43,8 @@
                 <td>${user.age}</td>
                 <td>${user.balance}</td>
                 <td>
-                    <a class="btn btn-primary" href="">修改</a>
-                    <a class="btn btn-danger" href="">删除</a>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/toModifyUser/${user.id}">修改</a>
+                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/deleteUser/${user.id}">删除</a>
                     <a class="btn btn-info" href="">转账</a>
                 </td>
             </tr>

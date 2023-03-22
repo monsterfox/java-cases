@@ -33,4 +33,9 @@ public class UserServiceImpl implements UserService {
     public List<User> queryUsers() {
         return userMapper.selectUsers();
     }
+
+    @Override
+    public User findUser(int id) {
+        return userMapper.getOneUser(id);
+    }
 }

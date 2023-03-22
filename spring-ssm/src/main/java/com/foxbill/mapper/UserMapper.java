@@ -9,4 +9,5 @@ public interface UserMapper {
     int deleteUser(int id);
     int updateUser(User user);
     List<User> selectUsers();
+    User getOneUser(int id);
 }

@@ -9,5 +9,5 @@ public interface UserService {
     boolean dropUser(int id);
     boolean modifyUser(User user);
     List<User> queryUsers();
-
+    User findUser(int id);
 }
