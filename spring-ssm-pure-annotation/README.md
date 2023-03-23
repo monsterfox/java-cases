@@ -23,3 +23,8 @@
   - 开启自动代理-AOP ：@EnableAspectJAutoProxy
   - 开启事务注解驱动：@EnableTransactionManagement
   - 开启MVC注解驱动：@EnableWebMvc 
+
+
+
+Spring启用Log4j2日志框架:
+https://blog.csdn.net/weixin_45832694/article/details/127621655

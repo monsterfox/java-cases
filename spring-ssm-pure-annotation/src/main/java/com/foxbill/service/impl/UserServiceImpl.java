@@ -3,6 +3,8 @@ package com.foxbill.service.impl;
 import com.foxbill.domain.User;
 import com.foxbill.mapper.UserMapper;
 import com.foxbill.service.UserService;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +13,7 @@ import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
+    Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserMapper userMapper;
@@ -32,6 +35,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> queryUsers() {
+        logger.info("我是一条日志消息");
         return userMapper.selectUsers();
     }
 
