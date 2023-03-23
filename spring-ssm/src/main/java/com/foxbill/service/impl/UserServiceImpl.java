@@ -38,4 +38,11 @@ public class UserServiceImpl implements UserService {
     public User findUser(int id) {
         return userMapper.getOneUser(id);
     }
+
+    @Override
+    public boolean transfer(int fromId, int toId, double balance) {
+        int r1 = userMapper.minusBalance(new User(fromId,balance));
+        int r2 = userMapper.addBalance(new User(toId,balance));
+        return (r1 > 0 && r2 > 0)?true:false;
+    }
 }

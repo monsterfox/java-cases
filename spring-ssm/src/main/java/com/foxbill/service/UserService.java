@@ -10,4 +10,5 @@ public interface UserService {
     boolean modifyUser(User user);
     List<User> queryUsers();
     User findUser(int id);
+    boolean transfer(int fromId,int toId,double balance);
 }

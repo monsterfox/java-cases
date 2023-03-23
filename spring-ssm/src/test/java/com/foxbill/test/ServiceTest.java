@@ -1,6 +1,7 @@
 package com.foxbill.test;
 
 import com.foxbill.domain.User;
+import com.foxbill.mapper.UserMapper;
 import com.foxbill.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +18,9 @@ public class ServiceTest {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Test
     public void test01(){
         List<User> users = userService.queryUsers();
@@ -26,5 +30,13 @@ public class ServiceTest {
     @Test
     public void test02(){
         userService.dropUser(13);
+    }
+
+    @Test
+    public void test03(){
+        User user = new User();
+        user.setId(2);
+        user.setBalance(1000);
+        userMapper.minusBalance(user);
     }
 }

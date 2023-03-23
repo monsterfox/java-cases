@@ -23,4 +23,11 @@
     <select id="getOneUser" resultType="user">
         select * from user where id = #{id}
     </select>
+
+    <update id="minusBalance" parameterType="user">
+        update user set balance = balance - #{balance} where id = #{id}
+    </update>
+    <update id="addBalance" parameterType="user">
+        update user set balance = balance + #{balance} where id = #{id}
+    </update>
 </mapper>

@@ -44,8 +44,8 @@
                 <td>${user.balance}</td>
                 <td>
                     <a class="btn btn-primary" href="${pageContext.request.contextPath}/toModifyUser/${user.id}">修改</a>
-                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/deleteUser/${user.id}">删除</a>
-                    <a class="btn btn-info" href="">转账</a>
+                    <a class="btn btn-danger" onclick="return confirm('确认删除吗?');" href="${pageContext.request.contextPath}/deleteUser/${user.id}">删除</a>
+                    <a class="btn btn-info" href="${pageContext.request.contextPath}/toTransfer/${user.id}">转账</a>
                 </td>
             </tr>
         </c:forEach>

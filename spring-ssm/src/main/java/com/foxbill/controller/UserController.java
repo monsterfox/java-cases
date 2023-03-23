@@ -31,21 +31,43 @@ public class UserController {
     @RequestMapping("/addUser")
     public String addUser(User user){
         userService.addUser(user);
-        return "forward:getUsers";
+        return "redirect:/getUsers";
     }
 
     @RequestMapping("/toModifyUser/{id}")
-    public String toModifyUser(@PathVariable int id){
+    public String toModifyUser(@PathVariable("id") int id,Map map){
         User user = userService.findUser(id);
+        map.put("user",user);
+        return "modifyUser";
+    }
+
+    @RequestMapping("/modifyUser")
+    public String modifyUser(User user){
         userService.modifyUser(user);
-        return "forward:getUsers";
+        return "redirect:/getUsers";
     }
 
     @RequestMapping("/deleteUser/{id}")
-    public String deleteUser(@PathVariable int id){
+    public String deleteUser(@PathVariable(value = "id") int id){
         userService.dropUser(id);
-        return "forward:getUsers";
+        return "redirect:/getUsers";
     }
 
+    @RequestMapping("/toTransfer/{id}")
+    public String toTransfer(@PathVariable("id") int id,Map map){
+        User user = userService.findUser(id);
+        List<User> userList = userService.queryUsers();
+        map.put("user",user);
+        map.put("userList",userList);
+        return "transfer";
+    }
+
+    @RequestMapping("/transfer")
+    public String transfer(int fromId,int toId,double balance){
+        System.out.println(fromId + "--->" + toId);
+        System.out.println(balance);
+        userService.transfer(fromId,toId,balance);
+        return "redirect:/getUsers";
+    }
 
 }

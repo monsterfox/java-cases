@@ -10,4 +10,7 @@ public interface UserMapper {
     int updateUser(User user);
     List<User> selectUsers();
     User getOneUser(int id);
+
+    int minusBalance(User user);
+    int addBalance(User user);
 }
