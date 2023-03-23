@@ -1,13 +1,19 @@
 package com.foxbill.service;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
 
 //负责计时的切面类
+@Component
+@Aspect
 public class MyAspect {
 
     /*
         环绕通知，如果返回值void,不写返回值可能会报错
      */
+    @Around(value = "execution(* com.foxbill.service.impl.UserServiceImpl.*(..))")
     public Object beforeAdvice(ProceedingJoinPoint pjp) throws Throwable {
         long start = System.currentTimeMillis();
         System.out.println("start:" + start);

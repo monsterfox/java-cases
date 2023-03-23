@@ -1,9 +1,16 @@
 package com.foxbill.config;
 
 import org.springframework.context.annotation.*;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import javax.sql.DataSource;
+
+/**
+ * 代替spring的配置文件
+ */
 @Configuration
 @PropertySource(value = "classpath:jdbc.properties")
 @ComponentScan(value = {"com.foxbill.service"})
@@ -21,7 +28,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableAspectJAutoProxy  //AOP Aspectj注解驱动 <aop:aspectj-autoproxy proxy-target-class="true"  />
 @EnableTransactionManagement  //事务注解驱动 <tx:annotation-driven transaction-manager="transactionManager" />
 
-@EnableWebMvc  // 开启mvc注解驱动 <mvc:annotation-driven/>
+//@EnableWebMvc  // 开启mvc注解驱动 <mvc:annotation-driven/>
 public class SpringConfig {
+
+    /*事务管理器*/
+    @Bean
+    public PlatformTransactionManager txManager(DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
+    }
 
 }

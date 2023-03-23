@@ -6,13 +6,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--包扫描-->
-<!--    <context:component-scan base-package="com.foxbill.service" />-->
+    <context:component-scan base-package="com.foxbill.service" />
 
 
     <!--  - - - - - - - - - - - - - - - AOP - - - - - - - - - - - - - - - -->
 
     <!--目标类-->
-    <bean id="userService" class="com.foxbill.service.impl.UserServiceImpl" />
+    <!--<bean id="userService" class="com.foxbill.service.impl.UserServiceImpl" />-->
     <!--通知类-->
     <bean id="myAspect" class="com.foxbill.service.MyAspect" />
 

@@ -9,16 +9,6 @@ import javax.sql.DataSource;
 
 public class MyBatisConfig {
 
-/*    @Value("${jdbc.driverClassName}")
-    private String driver;
-
-    @Bean("student")
-    public Student student(){
-        Student student = new Student();
-        student.setName(driver);
-        return student;
-    }*/
-
     @Bean("sqlSessionFactory")
     public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource){
 

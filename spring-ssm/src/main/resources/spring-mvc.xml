@@ -11,9 +11,31 @@
     <!--注解驱动：专门用来处理ajax请求；日期注入；静态资源的分流等-->
     <mvc:annotation-driven />
 
-    <!--视图解析器：如果用ajax发送请求，使用VUE则可以不配置-->
+    <!--配置JSP视图解析器：如果用ajax发送请求，使用VUE则可以不配置-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/page/" />
         <property name="suffix" value=".jsp" />
     </bean>
+
+    <!-- 配置Thymeleaf视图解析器 【同JSP视图，二选一】 -->
+    <!--
+    <bean id="viewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="templateEngine">
+            <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
+                <property name="templateResolver">
+                    <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+                        &lt;!&ndash; 视图前缀 &ndash;&gt;
+                        <property name="prefix" value="/WEB-INF/"/>
+                        &lt;!&ndash; 视图后缀 &ndash;&gt;
+                        <property name="suffix" value=".html"/>
+                        <property name="templateMode" value="HTML5"/>
+                        <property name="characterEncoding" value="UTF-8" />
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    -->
 </beans>

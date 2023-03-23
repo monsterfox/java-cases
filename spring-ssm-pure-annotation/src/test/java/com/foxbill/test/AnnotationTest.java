@@ -19,8 +19,6 @@ public class AnnotationTest {
         for (User user : list) {
             System.out.println(user);
         }
-
-
     }
 
     @Test

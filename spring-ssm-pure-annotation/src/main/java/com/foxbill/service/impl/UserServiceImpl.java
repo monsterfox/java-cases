@@ -5,6 +5,7 @@ import com.foxbill.mapper.UserMapper;
 import com.foxbill.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.getOneUser(id);
     }
 
+    @Transactional
     @Override
     public boolean transfer(int fromId, int toId, double balance) {
         int r1 = userMapper.minusBalance(new User(fromId,balance));
