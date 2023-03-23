@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @PropertySource(value = "classpath:jdbc.properties")
-@ComponentScan(value = {"com.foxbill.service","com.foxbill.controller"})
+@ComponentScan(value = {"com.foxbill.service"})
 /*
     导入其他配置类-方式二：
     若使用@ComponentScan，则JdbcConfig需要加@Configuration
@@ -23,24 +23,5 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableWebMvc  // 开启mvc注解驱动 <mvc:annotation-driven/>
 public class SpringConfig {
-
-/*    @Value("${jdbc.driverClassName}")
-    private String driver;
-    @Value("${jdbc.url}")
-    private String url;
-    @Value("${jdbc.username}")
-    private String  username;
-    @Value("${jdbc.password}")
-    private String  password;
-
-    @Bean("dataSource")
-    public DataSource dataSource(){
-        DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setDriverClassName(driver);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        return dataSource;
-    }*/
 
 }
