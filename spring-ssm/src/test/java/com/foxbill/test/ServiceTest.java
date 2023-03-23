@@ -34,9 +34,6 @@ public class ServiceTest {
 
     @Test
     public void test03(){
-        User user = new User();
-        user.setId(2);
-        user.setBalance(1000);
-        userMapper.minusBalance(user);
+        userService.transfer(2,1,100);
     }
 }

@@ -51,6 +51,9 @@
             <tx:method name="*remove*" propagation="REQUIRED" />
             <tx:method name="*clear*" propagation="REQUIRED" />
 
+            <!--转账的事务-->
+            <tx:method name="*transfer*" propagation="REQUIRED" />
+
             <tx:method name="*" propagation="SUPPORTS"/>
         </tx:attributes>
     </tx:advice>

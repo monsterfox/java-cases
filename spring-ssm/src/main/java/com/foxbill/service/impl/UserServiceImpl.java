@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean transfer(int fromId, int toId, double balance) {
         int r1 = userMapper.minusBalance(new User(fromId,balance));
+        //int a = 10 / 0; //测试事务
         int r2 = userMapper.addBalance(new User(toId,balance));
         return (r1 > 0 && r2 > 0)?true:false;
     }

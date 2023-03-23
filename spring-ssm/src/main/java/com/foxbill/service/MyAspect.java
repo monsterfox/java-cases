@@ -15,7 +15,7 @@ public class MyAspect {
         long end = System.currentTimeMillis();
         System.out.println("end:" + end);
 
-        System.out.println("耗时" + (end - start) + "毫秒");
+        System.out.println("AOP===============耗时" + (end - start) + "毫秒===============AOP");
         return obj;
     }
 }
