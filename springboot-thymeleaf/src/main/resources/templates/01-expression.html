@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>01-expression</title>
+</head>
+<body>
+    <h3>标准表达式${key}</h3>
+    <p th:text="${site}">xxx网站</p>
+    <p th:text="${myUser.id}">1000</p>
+    <p th:text="${myUser.name}">张丽</p>
+    <p th:text="${myUser.sex}">未知</p>
+    <p th:text="${myUser.getAge()}">0</p>
+
+</body>
+</html>
