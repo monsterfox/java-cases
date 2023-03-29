@@ -14,5 +14,8 @@ public class User {
     private int age;
     private double balance;
 
-
+    public User(int id, double balance) {
+        this.id = id;
+        this.balance = balance;
+    }
 }
