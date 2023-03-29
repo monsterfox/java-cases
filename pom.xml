@@ -33,6 +33,8 @@
         <module>spring-ssm-pure-annotation</module>
         <module>spring-aop-leadinto3</module>
         <module>spring-aop-leadinto4</module>
+        <module>springboot-core-config</module>
+        <module>springboot-mybatis</module>
     </modules>
 
     <properties>

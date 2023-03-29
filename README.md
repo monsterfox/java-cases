@@ -26,6 +26,7 @@
 21. springmvc-fileupload
 22. spring-ssm
 23. spring-ssm-pure-annotation
+24. springboot-core-config
 
 
 
