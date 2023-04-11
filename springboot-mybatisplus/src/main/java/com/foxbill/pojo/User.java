@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    private int id;
+    private Integer id;
     private String name;
-    private int age;
+    private Integer age;
     private double balance;
 
-    public User(int id, double balance) {
+    public User(Integer id, double balance) {
         this.id = id;
         this.balance = balance;
     }
