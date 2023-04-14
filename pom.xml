@@ -37,6 +37,7 @@
         <module>springboot-mybatis</module>
         <module>springboot-mybatisplus</module>
         <module>springboot-thymeleaf</module>
+        <module>java-thread</module>
     </modules>
 
     <properties>
