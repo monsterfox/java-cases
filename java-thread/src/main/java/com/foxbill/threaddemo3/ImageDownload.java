@@ -30,7 +30,7 @@ public class ImageDownload implements Callable<Boolean> {
         ImageDownload t2 = new ImageDownload("https://www.runoob.com/wp-content/uploads/2013/06/02A7DD95-22B4-4FB9-B994-DDB5393F7F03.jpg", "html1.jpg");
         ImageDownload t3 = new ImageDownload("https://www.runoob.com/wp-content/uploads/2013/06/EAD13C0B-0BE9-411E-8E2A-23600B0BEF9B.jpg", "html2.jpg");
 
-        //创建执行服务
+        //创建执行服务 - new一个线程池
         ExecutorService ser = Executors.newFixedThreadPool(3);
         //提交执行
         Future<Boolean> result1 = ser.submit(t1);
@@ -38,8 +38,8 @@ public class ImageDownload implements Callable<Boolean> {
         Future<Boolean> result3 = ser.submit(t3);
         //获取结果
         Boolean r1 = result1.get();
-        Boolean r2 = result1.get();
-        Boolean r3 = result1.get();
+        Boolean r2 = result2.get();
+        Boolean r3 = result3.get();
         //关闭服务
         ser.shutdownNow();
 

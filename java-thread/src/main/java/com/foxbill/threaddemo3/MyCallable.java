@@ -2,6 +2,10 @@ package com.foxbill.threaddemo3;
 
 import java.util.concurrent.Callable;
 
+/**
+ * 实现多线程的方式三：实现接口Callable<T>
+ *     可以返回值
+ */
 public class MyCallable implements Callable<String> {
     @Override
     public String call() throws Exception {

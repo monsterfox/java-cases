@@ -16,9 +16,9 @@ public class Demo {
         //创建线程对象
         Thread t1 = new Thread(ft);
 
-        String s = ft.get();
         //开启线程
         t1.start();
+        String s = ft.get();
 
         //String s = ft.get();
         System.out.println(s);
