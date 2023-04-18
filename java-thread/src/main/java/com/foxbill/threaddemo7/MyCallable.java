@@ -8,6 +8,6 @@ public class MyCallable implements Callable<String> {
         for (int i = 0; i < 100; i++) {
             System.out.println(Thread.currentThread().getName() + "---" + i);
         }
-        return "线程执行完毕了";
+        return Thread.currentThread().getName() + "线程执行完毕了";
     }
 }

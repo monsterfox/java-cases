@@ -20,7 +20,6 @@ public class Demo {
         //获取线程返回值
         String s = ft.get();
 
-        //String s = ft.get();
         System.out.println(s);
     }
 }

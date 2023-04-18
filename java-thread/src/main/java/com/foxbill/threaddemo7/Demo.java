@@ -1,9 +1,10 @@
 package com.foxbill.threaddemo7;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 public class Demo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         //优先级: 1 - 10 默认值:5
         MyCallable mc = new MyCallable();
 
@@ -14,6 +15,10 @@ public class Demo {
         t1.setPriority(10);
         //System.out.println(t1.getPriority());//5
         t1.start();
+        String s1 = ft.get();
+        System.out.println(s1);
+
+        ////////////////////////////////////////////////////////////////////////
 
         MyCallable mc2 = new MyCallable();
 
@@ -24,5 +29,7 @@ public class Demo {
         t2.setPriority(1);
         //System.out.println(t2.getPriority());//5
         t2.start();
+        String s2 = ft2.get();
+        System.out.println(s2);
     }
 }
