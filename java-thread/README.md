@@ -73,12 +73,39 @@ String name = Thread.currentThread().getName();
 守护线程
 
 ## threaddemo9
-
+方式一：实现Runnable接口
+线程不安全的卖票程序-Ticket:
+线程安全的卖票程序-Ticket_Synchronized:synchronized(obj)同步代码块
 
 ## threaddemo10
+方式二：继承Thread
+卖票程序-,synchronized(obj)同步代码块
+
 ## threaddemo11
+
+卖票程序-同步方法和同步代码块
+
 ## threaddemo12
+卖票程序-ReentrantLock 可重入锁
+
 ## threaddemo13
+死锁
+
 ## threaddemo14
+生产者消费者模式
+
+## join
+
+## lifecycle
+
+## race
+
+## state
+
+## staticProxy
+
+## yield
+
+
 
 

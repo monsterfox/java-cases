@@ -1,7 +1,7 @@
 package com.foxbill.threaddemo010;
 
 public class MyThread extends Thread {
-    private static int ticketCount = 100;
+    private static int ticketCount = 10;
     private static Object obj = new Object();
 
     @Override
@@ -17,10 +17,24 @@ public class MyThread extends Thread {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    System.out.println(Thread.currentThread().getName() + "--->拿到了第"+ticketCount+"票");
                     ticketCount--;
-                    System.out.println(Thread.currentThread().getName() + "在卖票,还剩下" + ticketCount + "张票");
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        MyThread t2 = new MyThread();
+        MyThread t3 = new MyThread();
+
+        t1.setName("小明");
+        t2.setName("小红");
+        t3.setName("小亮");
+
+        t1.start();
+        t2.start();
+        t3.start();
     }
 }

@@ -8,7 +8,7 @@ public class MyRunnable implements Runnable {
         while(true){
             if("窗口一".equals(Thread.currentThread().getName())){
                 //同步方法
-                boolean result = synchronizedMthod();
+                boolean result = synchronizedMethod();
                 if(result){
                     break;
                 }
@@ -34,7 +34,7 @@ public class MyRunnable implements Runnable {
         }
     }
 
-    private static synchronized boolean synchronizedMthod() {
+    private static synchronized boolean synchronizedMethod() {
         if(ticketCount == 0){
             return true;
         }else{

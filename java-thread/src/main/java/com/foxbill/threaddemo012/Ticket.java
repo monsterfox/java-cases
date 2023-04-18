@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Ticket implements Runnable {
     //票的数量
     private int ticket = 100;
-    private Object obj = new Object();
+    //private Object obj = new Object();
     private ReentrantLock lock = new ReentrantLock();
 
     @Override

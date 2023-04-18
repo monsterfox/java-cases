@@ -1,27 +1,34 @@
 package com.foxbill.threaddemo9;
 
-public class Ticket implements Runnable {
-    //票的数量
-    private int ticket = 100;
-    private Object obj = new Object();
+/**
+ * 买票程序 - 存在并发问题
+ *
+ */
+public class Ticket implements Runnable{
+
+    private int ticketNum = 10;
 
     @Override
     public void run() {
-        while(true){
-            synchronized (obj){//多个线程必须使用同一把锁.
-                if(ticket <= 0){
-                    //卖完了
-                    break;
-                }else{
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    ticket--;
-                    System.out.println(Thread.currentThread().getName() + "在卖票,还剩下" + ticket + "张票");
-                }
+        while (true){
+            if (ticketNum <= 0){
+                break;
             }
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+
+
+            }
+            System.out.println(Thread.currentThread().getName()+"--->拿到了第"+ticketNum--+"票");
         }
+    }
+
+    public static void main(String[] args) {
+        Ticket ticket = new Ticket();
+
+        new Thread(ticket,"小明").start();
+        new Thread(ticket,"小红").start();
+        new Thread(ticket,"小亮").start();
     }
 }
