@@ -7,6 +7,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.*;
 
+/**
+ *
+ *
+        1.创建执行服务 - new一个线程池
+        2.提交执行
+        3.获取结果
+        4.关闭服务
+ */
 public class ImageDownload implements Callable<Boolean> {
 
     private String url; //网络图片地址
