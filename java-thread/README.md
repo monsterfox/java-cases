@@ -7,7 +7,7 @@
 实现多线程的方式二：实现接口Runnable
 
 ## threaddemo3
-实现多线程的方式三：实现接口Callable<T>，特点是可以返回值。
+实现多线程的方式三：利用Callable<T>和Future接口方式实现，特点是可以返回值。
 
 3.1：通过 Callable 和 FutureTask 创建线程。
 
@@ -105,6 +105,18 @@ String name = Thread.currentThread().getName();
 ## staticProxy
 
 ## yield
+
+## pool
+线程池：
+JDK5.0起提供了线程池相关API:ExecutorService和Executors
+
+ExecutorService：真正的线程池接口。常见子类ThreadPoolExecutor
+
+- void execute(Runnable command)：执行任务/命令，没有返回值，一般用来执行Runnable
+- <T> Future<T> submit(Callable<T> task)：执行任务，有返回值，一般用来执行Callable
+- void shutdown()：关闭线程池
+
+Executors：工具类、线程池的工厂类，用于创建并返回不同类型的线程池
 
 
 
