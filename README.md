@@ -27,6 +27,10 @@
 22. spring-ssm
 23. spring-ssm-pure-annotation
 24. springboot-core-config
+25. interview-basic
+DTD&Schema的演示案例在子目录：xml-dtd和xml-schema中
+
+26. java-thread
 
 
 
