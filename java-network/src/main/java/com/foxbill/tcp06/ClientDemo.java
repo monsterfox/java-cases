@@ -1,4 +1,4 @@
-package com.foxbill.tcp03;
+package com.foxbill.tcp06;
 
 import java.io.*;
 import java.net.Socket;

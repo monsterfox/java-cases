@@ -4,6 +4,9 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * TCP程序文件上传练习
+ */
 public class ServerDemo {
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(10001);
@@ -16,12 +19,9 @@ public class ServerDemo {
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("java-network\\serverDir\\copy.jpg"));
 
         int b;
-        int count=0;
         while ((b = bis.read()) != -1){
-            count++;
             bos.write(b);
         }
-        System.out.println("server-count:" + count);
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(accept.getOutputStream()));
         bw.write("上传成功");
