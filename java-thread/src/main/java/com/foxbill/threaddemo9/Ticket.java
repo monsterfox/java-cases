@@ -18,7 +18,6 @@ public class Ticket implements Runnable{
                 Thread.sleep(200);
             } catch (InterruptedException e) {
 
-
             }
             System.out.println(Thread.currentThread().getName()+"--->拿到了第"+ticketNum--+"票");
         }
