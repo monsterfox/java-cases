@@ -39,6 +39,8 @@
         <module>springboot-thymeleaf</module>
         <module>java-thread</module>
         <module>java-network</module>
+        <module>mybatis-cache-level1</module>
+        <module>mybatis-cache-level2</module>
     </modules>
 
     <properties>
