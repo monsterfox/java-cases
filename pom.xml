@@ -42,6 +42,7 @@
         <module>mybatis-cache-level1</module>
         <module>mybatis-cache-level2</module>
         <module>mybatis-dynamic-sql</module>
+        <module>java-jdbc-pool</module>
     </modules>
 
     <properties>
