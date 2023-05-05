@@ -32,5 +32,5 @@ DTD&Schema的演示案例在子目录：xml-dtd和xml-schema中
 
 26. java-thread
 27. java-network
-28. mybatis-cache-level1
-29. mybatis-cache-level2
+28. mybatis-cache-level1 本例演示了一级缓存（本地缓存） - SqlSession级别
+29. mybatis-cache-level2 本例演示了二级缓存（全局缓存） - 跨SQLSession，缓存粒度控制到namespace级别。
