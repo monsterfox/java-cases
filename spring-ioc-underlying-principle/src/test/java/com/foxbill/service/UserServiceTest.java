@@ -1,6 +1,6 @@
 package com.foxbill.service;
 
-import com.foxbill.config.SpringConfig;
+import config.SpringConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
