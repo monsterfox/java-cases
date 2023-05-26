@@ -43,6 +43,7 @@
         <module>mybatis-cache-level2</module>
         <module>mybatis-dynamic-sql</module>
         <module>java-jdbc-pool</module>
+        <module>spring-ioc-underlying-principle</module>
     </modules>
 
     <properties>
