@@ -44,6 +44,7 @@
         <module>mybatis-dynamic-sql</module>
         <module>java-jdbc-pool</module>
         <module>spring-ioc-underlying-principle</module>
+        <module>design-pattern</module>
     </modules>
 
     <properties>
