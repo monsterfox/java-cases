@@ -11,15 +11,23 @@ public class ServiceProxy implements SomeService{
 
     @Override
     public void doSome(){
-        System.out.println("非业务功能，日志功能：在方法开始时输出日志");
+        doLog();
         target.doSome();
-        System.out.println("非业务功能，事务功能：在业务方法执行之后，加入事务");
+        doOther();
     }
 
     @Override
     public void doOther() {
-        System.out.println("非业务功能，日志功能：在方法开始时输出日志");
+        doLog();
         target.doOther();
+        doOther();
+    }
+
+    public void doLog(){
+        System.out.println("非业务功能，日志功能：在方法开始时输出日志");
+    }
+
+    public void doTrans(){
         System.out.println("非业务功能，事务功能：在业务方法执行之后，加入事务");
     }
 }

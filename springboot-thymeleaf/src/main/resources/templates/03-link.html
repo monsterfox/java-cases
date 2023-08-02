@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>01-expression</title>
+</head>
+<body>
+<div style="margin-left: 350px">
+    <p>链接表达式</p>
+    <p>链接到绝对地址</p>
+    <a th:href="@{http://www.baidu.com}">百度</a>
+    <br />
+    <br />
+    <p>链接到相对地址</p>
+    <a th:href="@{/query/student}">相对地址没有传参数</a>
+    <br />
+    <br />
+    <p>链接到相对地址，传参数方式</p>
+    <a th:href="@{'/query/student?id='+${stuId}}">相对地址传参数方式1</a>
+    <br />
+    <br />
+    <a th:href="@{/find/school(id=${stuId},name='lisi')}">相对地址传参数方式2</a>
+</div>
+</body>
+</html>

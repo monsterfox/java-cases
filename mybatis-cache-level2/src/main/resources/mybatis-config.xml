@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入配置文件-->
+    <properties resource="jdbc.properties" />
+    
+    <!--设置-->
+    <settings>
+        <!--配置二级缓存的全局开关  - 开启  -->
+        <setting name="cacheEnabled" value="true"/>
+        <!--开启数据库日志检测-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--包名简化缩写-->
+    <typeAliases>
+        <!--typeAlias方式-->
+        <typeAlias alias="student" type="com.foxbill.pojo.Student" />
+    </typeAliases>
+    <!--配置环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--配置Mapper映射文件-->
+    <mappers>
+<!--        <mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
+        <!--将com.foxbill.mapper包下的所有Mapper接口引入-->
+        <package name="com.foxbill.mapper"/>
+    </mappers>
+</configuration>

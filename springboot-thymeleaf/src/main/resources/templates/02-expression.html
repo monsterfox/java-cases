@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>01-expression</title>
+</head>
+<body>
+<div style="margin-left: 350px">
+    <p>学习选择表达式</p>
+    <div th:object="${myUser}">
+        <p th:text="*{id}">id</p>
+        <p th:text="*{name}">name</p>
+        <p th:text="*{sex}">sex</p>
+        <p th:text="*{age}">age</p>
+    </div>
+    <p th:text="*{myUser.name}"></p>
+</div>
+</body>
+</html>

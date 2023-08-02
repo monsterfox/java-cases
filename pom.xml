@@ -28,6 +28,23 @@
         <module>spring-web02-listener</module>
         <module>springmvc-request-param</module>
         <module>spring-ssm</module>
+        <module>springmvc-interceptor</module>
+        <module>springmvc-fileupload</module>
+        <module>spring-ssm-pure-annotation</module>
+        <module>spring-aop-leadinto3</module>
+        <module>spring-aop-leadinto4</module>
+        <module>springboot-core-config</module>
+        <module>springboot-mybatis</module>
+        <module>springboot-mybatisplus</module>
+        <module>springboot-thymeleaf</module>
+        <module>java-thread</module>
+        <module>java-network</module>
+        <module>mybatis-cache-level1</module>
+        <module>mybatis-cache-level2</module>
+        <module>mybatis-dynamic-sql</module>
+        <module>java-jdbc-pool</module>
+        <module>spring-ioc-underlying-principle</module>
+        <module>design-pattern</module>
     </modules>
 
     <properties>
