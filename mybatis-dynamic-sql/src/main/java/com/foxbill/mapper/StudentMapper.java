@@ -7,6 +7,7 @@ import java.util.List;
 
 
 public interface StudentMapper {
+    List<Student> queryStudent0(Student student);
     List<Student> queryStudent1(Student student);
     List<Student> queryStudent2(Student student);
     List<Student> queryStudent3(Student student);
