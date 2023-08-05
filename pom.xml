@@ -45,6 +45,7 @@
         <module>java-jdbc-pool</module>
         <module>spring-ioc-underlying-principle</module>
         <module>design-pattern</module>
+        <module>mybatis-generator</module>
     </modules>
 
     <properties>

@@ -22,8 +22,8 @@ public class MyBatisAdvancedTest {
     public void test00() throws IOException {
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
-        //student.setName("张三"); //如果在映射文件中只用if,在没有设置name时，拼接的sql会有错
-        student.setAge(42);
+        student.setName("马云");
+        //student.setAge(50);
 
         List<Student> list = mapper.queryStudent0(student);
         list.forEach(System.out::println);

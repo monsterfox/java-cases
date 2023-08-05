@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
         int r2 = userMapper.addBalance(new User(toId,balance));
         return (r1 > 0 && r2 > 0)?true:false;
     }
+
+    @Override
+    public List<User> multiSearch(User user) {
+        return userMapper.multiSearch(user);
+    }
 }

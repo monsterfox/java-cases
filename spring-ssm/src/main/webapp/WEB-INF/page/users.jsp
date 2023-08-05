@@ -25,6 +25,24 @@
 <div class="container mt-3">
     <h2>用户列表</h2>
     <a class="btn btn-primary" href="${pageContext.request.contextPath}/toAddUser">添加用户</a>
+
+    <form action="${pageContext.request.contextPath}/search" method="post">
+        <div class="row">
+            <div class="col">
+                姓名：<input type="text" class="form-control" placeholder="请输入姓名" name="name">
+            </div>
+            <div class="col">
+                年龄：<input type="text" class="form-control" placeholder="请输入年龄" name="age">
+            </div>
+            <div class="col">
+                余额：<input type="text" class="form-control" placeholder="请输入余额" name="balance">
+            </div>
+            <div class="col">
+                <input type="submit" class="btn btn-primary" value="提交" />
+            </div>
+
+        </div>
+    </form>
     <table class="table">
         <thead class="table-dark">
         <tr>

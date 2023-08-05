@@ -13,4 +13,6 @@ public interface UserMapper {
 
     int minusBalance(User user);
     int addBalance(User user);
+
+    List<User> multiSearch(User user);
 }

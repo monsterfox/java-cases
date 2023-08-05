@@ -4,7 +4,9 @@ import com.foxbill.domain.User;
 import com.foxbill.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,6 +22,23 @@ public class UserController {
     public String getUsers(Map map){
         List<User> users = userService.queryUsers();
         map.put("users",users);
+        return "users";
+    }
+    @RequestMapping("/test")
+    public String test(){
+        return "test";
+    }
+
+    @RequestMapping("/search")
+    public String searchUsers(String name,int age,int balance){
+        System.out.println(123);
+        User user = new User();
+        user.setName(name);
+        user.setAge(age);
+        user.setBalance(balance);
+        List<User> users = userService.multiSearch(user);
+        System.out.println(users);
+
         return "users";
     }
 
@@ -69,5 +88,7 @@ public class UserController {
         userService.transfer(fromId,toId,balance);
         return "redirect:/getUsers";
     }
+
+
 
 }

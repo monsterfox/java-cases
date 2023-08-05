@@ -11,4 +11,6 @@ public interface UserService {
     List<User> queryUsers();
     User findUser(int id);
     boolean transfer(int fromId,int toId,double balance);
+
+    List<User> multiSearch(User user);
 }

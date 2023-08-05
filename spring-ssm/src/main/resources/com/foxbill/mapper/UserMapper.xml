@@ -30,4 +30,19 @@
     <update id="addBalance" parameterType="user">
         update user set balance = balance + #{balance} where id = #{id}
     </update>
+
+    <select id="multiSearch" resultType="com.foxbill.domain.User">
+        select * from user
+        <where>
+            <if test="null != name and '' != name">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="null != age and '' != age">
+                and age = #{age}
+            </if>
+            <if test="null != balance and '' != balance">
+                and balance = #{balance}
+            </if>
+        </where>
+    </select>
 </mapper>
