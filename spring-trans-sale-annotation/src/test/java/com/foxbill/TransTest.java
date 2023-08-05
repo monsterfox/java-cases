@@ -12,8 +12,8 @@ public class TransTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(config);
 
         GoodsService goodsService = (GoodsService) ctx.getBean("goodsService");
-        goodsService.buy(1001,20); //正常购买
+//        goodsService.buy(1001,20); //正常购买
 //        goodsService.buy(1005,10); //无此商品
-//        goodsService.buy(1001,200); //库存不足
+        goodsService.buy(1001,200); //库存不足
     }
 }
