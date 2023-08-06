@@ -19,8 +19,8 @@ public class TransTest {
         //com.sun.proxy.$Proxy16
         //System.out.println(goodsService.getClass().getName()); //这是Class的名字
 
-//        goodsService.buy(1001,20); //正常购买
-        goodsService.buy(1005,10); //无此商品
+        goodsService.buy(1001,20); //正常购买
+//        goodsService.buy(1005,10); //无此商品
 //        goodsService.buy(1001,200); //库存不足
     }
 }
