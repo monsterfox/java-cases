@@ -9,6 +9,9 @@ import com.foxbill.service.GoodsService;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(propagation = Propagation.REQUIRED,
+        rollbackFor = {NullPointerException.class,
+                NotEnoughException.class})
 public class GoodsServiceImpl implements GoodsService {
 
     private GoodsDao goodsDao;
@@ -22,9 +25,7 @@ public class GoodsServiceImpl implements GoodsService {
         this.saleDao = saleDao;
     }
 
-    @Transactional(propagation = Propagation.REQUIRED,
-            rollbackFor = {NullPointerException.class,
-                            NotEnoughException.class})
+
     @Override
     public void buy(Integer goodsId, Integer amount) {
         Sale sale = new Sale();
