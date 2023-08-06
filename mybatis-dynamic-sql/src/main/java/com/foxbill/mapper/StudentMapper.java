@@ -15,5 +15,6 @@ public interface StudentMapper {
     int updateStudent1(Student student);
     int updateStudent2(Student student);
     List<Student> queryStudentForEach(@Param("idList") List idList);
-    List<Student> queryStudentBind(String key);
+    List<Student> queryStudentBind(Student student);
+    List<Student> queryStudentBind2(@Param("keyword") String key);
 }

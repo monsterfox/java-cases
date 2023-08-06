@@ -32,9 +32,10 @@ DTD&Schema的演示案例在子目录：xml-dtd和xml-schema中
 
 26. java-thread
 27. java-network
-28. mybatis-cache-level1 本例演示了一级缓存（本地缓存） - SqlSession级别
-29. mybatis-cache-level2 本例演示了二级缓存（全局缓存） - 跨SQLSession，缓存粒度控制到namespace级别。
-30. mybatis-generator MyBatis逆向工程，可以基于数据库表自动帮我们生成实体类，Mapper.java接口和Mapper.xml映射文件。
+28. mybatis-quickstart: MyBatis入门案例
+29. mybatis-cache-level1 本例演示了一级缓存（本地缓存） - SqlSession级别
+30. mybatis-cache-level2 本例演示了二级缓存（全局缓存） - 跨SQLSession，缓存粒度控制到namespace级别。
+31. mybatis-generator MyBatis逆向工程，可以基于数据库表自动帮我们生成实体类，Mapper.java接口和Mapper.xml映射文件。
 运行方式一：
     使用maven命令进行自动生成代码，相关设置如下：
     选择Edit Configurations...
@@ -44,4 +45,4 @@ DTD&Schema的演示案例在子目录：xml-dtd和xml-schema中
 运行方式二：
     运行GeneratorCode.java
     【注意：因为当前是个子模块，可能会出现无法生成代码的情况，其原因是，生成的代码会放在项目的根目录下的相应文件夹中，切记！切记！！！】
-31. next
+32. 

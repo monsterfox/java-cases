@@ -47,6 +47,7 @@
         <module>design-pattern</module>
         <module>mybatis-generator</module>
         <module>mybatis-quickstart</module>
+        <module>mybatis-proxy</module>
     </modules>
 
     <properties>
