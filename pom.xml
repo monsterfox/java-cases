@@ -54,6 +54,7 @@
         <module>mybatis-annotation</module>
         <module>spring-leadin</module>
         <module>spring-trans-sale-propagation</module>
+        <module>spring-jdbctemplate</module>
     </modules>
 
     <properties>
