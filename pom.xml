@@ -46,6 +46,7 @@
         <module>spring-ioc-underlying-principle</module>
         <module>design-pattern</module>
         <module>mybatis-generator</module>
+        <module>mybatis-quickstart</module>
     </modules>
 
     <properties>
