@@ -52,6 +52,7 @@
         <module>mybatis-association-mapping-1-m</module>
         <module>mybatis-association-mapping-m-n</module>
         <module>mybatis-annotation</module>
+        <module>spring-leadin</module>
     </modules>
 
     <properties>
