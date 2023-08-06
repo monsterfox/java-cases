@@ -51,6 +51,7 @@
         <module>mybatis-association-mapping-1to1</module>
         <module>mybatis-association-mapping-1-m</module>
         <module>mybatis-association-mapping-m-n</module>
+        <module>mybatis-annotation</module>
     </modules>
 
     <properties>
