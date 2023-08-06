@@ -6,7 +6,12 @@
                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     
     <context:property-placeholder location="jdbc.properties" />
-    
+    <!--
+    有三种数据源：
+    1.Spring默认的数据源DriverManagerDataSource;
+    2.DBCP数据源
+    3.C3P0数据源
+    -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driver}" />
         <property name="url" value="${jdbc.url}" />
