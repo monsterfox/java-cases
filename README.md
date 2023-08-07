@@ -13,13 +13,13 @@
 8. mybatis-association-mapping-m-n 关联映射：多对多
 9. mybatis-annotation 注解开发
 10. mybatis-generator MyBatis逆向工程，可以基于数据库表自动帮我们生成实体类，Mapper.java接口和Mapper.xml映射文件。
-运行方式一：
+<br />运行方式一：
     使用maven命令进行自动生成代码，相关设置如下：
     选择Edit Configurations...
     点击加号选择maven
     在Name框填入mybatis-generator然后再Command line 填入mybatis-generator:generate -e
     点击OK
-运行方式二：
+<br />运行方式二：
     运行GeneratorCode.java
     【注意：因为当前是个子模块，可能会出现无法生成代码的情况，其原因是，生成的代码会放在项目的根目录下的相应文件夹中，切记！切记！！！】
 11. spring-leadin:【Spring案例1】Spring框架的引入，了解什么是IoC和DI
@@ -29,7 +29,7 @@
 15. spring-aop-leadinto1:【Spring-AOP案例1】 AOP-引入
 16. spring-aop-leadinto2:【Spring-AOP案例2】 AOP-自定义代理类
 17. spring-aspectj-quickstart-xml:【Spring-AOP案例3】 AOP-基于XML实现AOP
-     Spring帮我们生成代理对象，进行功能的增强。
+    <br />Spring帮我们生成代理对象，进行功能的增强。
 18. spring-aspectj-quickstart-annotation:【Spring-AOP案例4】 AOP-基于注解驱动实现AOP
      同上
 19. spring-aspectj-before:【Spring-Aspectj案例1】
@@ -42,7 +42,7 @@
 26. spring-mybatis:【Spring-Mybatis整合案例】
 27. spring-trans-sale:【Spring事务案例1】本例要实现购买商品，模拟用户下订单，向订单表添加销售记录，从商品表减少库存。【无事务状态】
 28. spring-trans-sale-annotaion:【Spring事务案例2】
-    事务是通过切面进行增强的功能，一般事务要加在业务层service，因此我们获取到的service对象，实际上个代理对象。
+    <br />事务是通过切面进行增强的功能，一般事务要加在业务层service，因此我们获取到的service对象，实际上个代理对象。
     即
 29. spring-trans-sale-aspectj:【Spring事务案例3】
 30. spring-trans-sale-propagation:【Spring事务案例4】事务的传播特性 - 测试包里有Excel表格，用于演示各种组合场景
@@ -58,5 +58,5 @@
 40. java-thread
 41. java-network
 42. interview-basic
-    DTD&Schema的演示案例在子目录：xml-dtd和xml-schema中
+    <br />DTD&Schema的演示案例在子目录：xml-dtd和xml-schema中
 43. 
