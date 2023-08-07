@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-aop-leadinto4</artifactId>
+    <artifactId>spring-aspectj-quickstart-xml</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -34,4 +34,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 </project>

@@ -24,7 +24,7 @@ public class Student {
     /**  引用类型注入-注解  */
 
 /*    @Autowired //默认byType
-    @Qualifier("mySchool") //通过@Autowired 注解 要使用byName方式赋值，需要配合@Qualifier 使用*/
+    @Qualifier("mySchool") //要使用byName方式赋值，需要通过@Autowired注解配合@Qualifier 使用*/
 
     @Resource //先按照byName赋值，如果失败，再使用byType。  默认是byName
 //    @Resource(name = "mySchool")  //只使用byName方式赋值，即名称必须相同

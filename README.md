@@ -9,9 +9,9 @@
 4. spring-ioc-underlying-principle :【Spring-IoC案例3】
 5. spring-aop-leadinto1:【Spring-AOP案例1】 AOP-引入
 6. spring-aop-leadinto2:【Spring-AOP案例2】 AOP-自定义代理类
-7. spring-aop-leadinto3:【Spring-AOP案例3】 AOP-基于XML实现AOP
+7. spring-aspectj-quickstart-xml:【Spring-AOP案例3】 AOP-基于XML实现AOP
     Spring帮我们生成代理对象，进行功能的增强。
-8. spring-aop-leadinto4:【Spring-AOP案例4】 AOP-基于注解驱动实现AOP
+8. spring-aspectj-quickstart-annotation:【Spring-AOP案例4】 AOP-基于注解驱动实现AOP
     同上
 9. spring-aspectj-before:【Spring-Aspectj案例1】
 10. spring-aspectj-afterreturning:【Spring-Aspectj案例2】
