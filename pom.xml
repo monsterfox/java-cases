@@ -55,7 +55,7 @@
         <module>spring-leadin</module>
         <module>spring-trans-sale-propagation</module>
         <module>spring-jdbctemplate</module>
-        <module>springmvc-quickstart</module>
+        <module>springmvc-quickstart-xml-principle</module>
         <module>springmvc-quickstart-annotation</module>
     </modules>
 
