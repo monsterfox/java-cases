@@ -23,6 +23,17 @@
         </fieldset>
     </form>
     <br><hr>
+    <form action="${pageContext.request.contextPath}/objectPropertyParam" method="post">
+        <fieldset>
+            <legend>2.1对象属性数据提交</legend>
+            姓名：<input type="text" name="name" /> <br />
+            年龄：<input type="text" name="age" /> <br />
+            国家：<input type="text" name="address.country" /> <br />
+            城市：<input type="text" name="address.city" /> <br />
+            <input type="submit" value="提交">
+        </fieldset>
+    </form>
+    <br><hr>
     <a href="${pageContext.request.contextPath}/pathParam/中国/22" >3.动态占位符提交数据（只限于超链接）</a>
     <br><hr>
     <a href="${pageContext.request.contextPath}/reqParam?myname=马斯克" >4.请求参数名称与形参名称不一致</a>

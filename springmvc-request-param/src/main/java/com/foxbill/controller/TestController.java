@@ -30,6 +30,12 @@ public class TestController {
         return "param";
     }
 
+    @RequestMapping("/objectPropertyParam")
+    public String objectPropertyParam(User user){
+        System.out.println(user);
+        return "param";
+    }
+
     @RequestMapping("/pathParam/{name}/{age}")
     public String pathParam(@PathVariable String name,@PathVariable int age){
         System.out.println(name + ":" + age);

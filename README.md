@@ -49,14 +49,16 @@
 31. spring-trans-isolation-xx:【Spring事务案例x】事务的隔离级别
 32. spring-web01:【Spring-Web案例1】 本例演示了Servlet中如何手动获取Spring容器，并从中获取bean.
 33. spring-web02-listener:【Spring-Web案例2】 本例演示了如何通过ContextLoaderListener监听器，自动创建Spring容器，并把容器放入ServletContext作用域，保证在所有的Servlet中都可以拿到同一个Spring容器。
-34. springmvc-request-param:【SpringMVC案例1】
-35. springmvc-interceptor:【SpringMVC案例2】
-36. springmvc-fileupload:【SpringMVC案例3】
-37. spring-ssm:【Spring整合SSM案例1】XML
-38. spring-ssm-pure-annotation:【Spring整合SSM案例2】纯注解
-39. springboot-core-config:【SpringBoot案例1】
-40. java-thread
-41. java-network
-42. interview-basic
+34. springmvc-quickstart-xml-principle:【SpringMVC案例1】本例重点演示SpringMVC的运行原理，实际开发并不这么用。
+35. springmvc-quickstart-annotation:【SpringMVC案例2】
+36. springmvc-request-param:【SpringMVC案例3】请求参数获取
+37. springmvc-interceptor:【SpringMVC案例4】
+38. springmvc-fileupload:【SpringMVC案例5】
+39. spring-ssm:【Spring整合SSM案例1】XML
+40. spring-ssm-pure-annotation:【Spring整合SSM案例2】纯注解
+41. springboot-core-config:【SpringBoot案例1】
+42. java-thread
+43. java-network
+44. interview-basic
     <br />DTD&Schema的演示案例在子目录：xml-dtd和xml-schema中
-43. 
+45. 
