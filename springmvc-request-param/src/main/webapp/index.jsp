@@ -70,7 +70,7 @@
     <hr>
 
     <%--可以用POSTMAN发送JSON
-        http://localhost:8080/jsonParam
+        http://localhost:8080/springmvc-request-param/jsonParam
         {'name':'张三','age':'24'}
     --%>
     <a href="${pageContext.request.contextPath}/jsonParam" >7.发送JSON数据</a>
