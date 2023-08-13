@@ -11,6 +11,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -18,8 +19,8 @@ import java.util.Map;
 @Controller
 public class TestController {
 
-    @RequestMapping("/basicParam")
-    public String basicParam(String name, int age){
+    @RequestMapping("/singleParam")
+    public String singleParam(String name, int age){
         System.out.println(name + ":" +age);
         return "param";
     }
@@ -36,21 +37,49 @@ public class TestController {
         return "param";
     }
 
-    @RequestMapping("/pathParam/{name}/{age}")
-    public String pathParam(@PathVariable String name,@PathVariable int age){
+    @RequestMapping("/pathParam/{username}/{age}")
+    public String pathParam(@PathVariable(value = "username") String name,@PathVariable int age){
+        try {
+            name = new String(name.getBytes("ISO-8859-1"),"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         System.out.println(name + ":" + age);
         return "param";
     }
 
 
-    @RequestMapping("/reqParam")
-    public String reqParam(@RequestParam("myname") String name){
+    @RequestMapping(value = "/reqParam",method = RequestMethod.GET)
+    public String reqParam1(@RequestParam("myname") String name){
+        try {
+            name = new String(name.getBytes("ISO-8859-1"),"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         System.out.println(name);
         return "param";
     }
 
-    @RequestMapping("/servletParam")
-    public String servletParam(HttpServletRequest request){
+    @RequestMapping(value = "/reqParam",method = RequestMethod.POST)
+    public String reqParam2(@RequestParam("myname") String name){
+        System.out.println(name);
+        return "param";
+    }
+
+    @RequestMapping(value = "/servletParam",method = RequestMethod.GET)
+    public String servletParam1(HttpServletRequest request){
+        String name = request.getParameter("name");
+        try {
+            name = new String(name.getBytes("ISO-8859-1"),"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        System.out.println(name);
+        return "param";
+    }
+
+    @RequestMapping(value = "/servletParam",method = RequestMethod.POST)
+    public String servletParam2(HttpServletRequest request){
         String name = request.getParameter("name");
         System.out.println(name);
         return "param";
@@ -59,6 +88,15 @@ public class TestController {
     @RequestMapping("/jsonParam")
     public String jsonParam(@RequestBody String json){
         System.out.println(json);
+        return "param";
+    }
+
+    @RequestMapping("/arrayParam")
+    public String arrayParam(String[] hobby){
+        System.out.println("我的爱好：");
+        for(String s:hobby){
+            System.out.println(s);
+        }
         return "param";
     }
 
@@ -94,18 +132,6 @@ public class TestController {
     public String testDate3(Date date){
         System.out.println(date);
         return "param";
-    }
-
-    /**********************************从Web后端携带数据到Web前端**********************************/
-    @RequestMapping("/showParam")
-    public String showParam(String name, int age, Model model, Map map, ModelMap modelMap, HttpServletRequest request){
-        System.out.println(name + ":" +age);
-        model.addAttribute("modelName",name);
-        map.put("mapName",name);
-        modelMap.addAttribute("modelMapName",name);
-        modelMap.put("modelMap-age",age);
-        request.setAttribute("reqName",name);
-        return "showParam";
     }
 
 }
