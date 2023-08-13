@@ -57,6 +57,7 @@
         <module>spring-jdbctemplate</module>
         <module>springmvc-quickstart-xml-principle</module>
         <module>springmvc-quickstart-annotation</module>
+        <module>springmvc-response-param</module>
     </modules>
 
     <properties>
