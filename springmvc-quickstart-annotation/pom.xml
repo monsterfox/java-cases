@@ -23,11 +23,12 @@
             <artifactId>spring-webmvc</artifactId>
             <version>5.3.26</version>
         </dependency>
-        <dependency>
+        <!--可以省略，webmvc已经传递依赖aop了-->
+<!--        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>5.3.26</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
