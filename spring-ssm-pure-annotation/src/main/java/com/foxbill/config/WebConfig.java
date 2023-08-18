@@ -57,7 +57,7 @@ public class WebConfig implements WebMvcConfigurer {
         return templateEngine;
     }
 
-    //生成视图解析器并未解析器注入模板引擎
+    //生成视图解析器并为解析器注入模板引擎
     @Bean
     public ViewResolver viewResolver(SpringTemplateEngine templateEngine) {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
