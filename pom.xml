@@ -27,10 +27,10 @@
         <module>spring-web01</module>
         <module>spring-web02-listener</module>
         <module>springmvc-request-param</module>
-        <module>spring-ssm</module>
+        <module>ssm</module>
         <module>springmvc-interceptor</module>
         <module>springmvc-fileupload</module>
-        <module>spring-ssm-pure-annotation</module>
+        <module>ssm-pure-annotation</module>
         <module>spring-aspectj-quickstart-xml</module>
         <module>spring-aspectj-quickstart-annotation</module>
         <module>springboot-core-config</module>
@@ -61,6 +61,7 @@
     </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
