@@ -27,12 +27,13 @@
         <module>spring-web01</module>
         <module>spring-web02-listener</module>
         <module>springmvc-request-param</module>
-        <module>ssm</module>
         <module>springmvc-interceptor</module>
         <module>springmvc-fileupload</module>
-        <module>ssm-pure-annotation</module>
         <module>spring-aspectj-quickstart-xml</module>
         <module>spring-aspectj-quickstart-annotation</module>
+        <module>ssm</module>
+        <module>ssm-pure-annotation</module>
+        <module>ssm-ajax</module>
         <module>springboot-core-config</module>
         <module>springboot-mybatis</module>
         <module>springboot-mybatisplus</module>

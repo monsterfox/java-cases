@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+        form{
+            display: block;
+            width: 50%;
+            height: 300px;
+            margin: 10px auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function checkUsername(){
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    var resp = xmlhttp.responseText;
+                    if (resp == "false"){
+                        document.getElementById("msg").innerHTML= "用户名已存在！";
+                    }else {
+                        document.getElementById("msg").innerHTML= "";
+                    }
+
+                }
+            }
+            var username = document.getElementById("username").value;
+            xmlhttp.open("GET","../check?username="+username,true);
+            xmlhttp.send();
+        }
+
+        function checkName() {
+            //获取文件筐中输入的用户名
+            let username = document.getElementById("username").value;
+            /*            axios({
+                            method:"get",
+                            url:"../check?username="+username
+                        }).then(function (resp){
+                            if (resp.data == 0){
+                                document.getElementById("msg").innerHTML = "用户名已存在！";
+                            }else {
+                                document.getElementById("msg").innerHTML = "";
+                            }
+                        })*/
+
+            axios({
+                method:"post",
+                url:"../check",
+                data:"username="+username
+            }).then(function (resp){
+                if (resp.data == 0){
+                    document.getElementById("msg").innerHTML = "用户名已存在！";
+                }else {
+                    document.getElementById("msg").innerHTML = "";
+                }
+            });
+        }
+
+        function checkName2() {
+            //获取文件筐中输入的用户名
+            let username = document.getElementById("username").value;
+            var jsObject = {"username":username};
+            axios.post("../check",jsObject).then(function (resp) {
+                if (resp.data == 0){
+                    document.getElementById("msg").innerHTML = "用户名已存在！";
+                }else {
+                    document.getElementById("msg").innerHTML = "";
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+    <h1>注册</h1>
+  <form action="register" method="get">
+      <input type="text" id="username" name="username" onblur="checkName2()" />
+      <span id="msg" style="color: red"></span><br>
+      <input type="password" name="password" /><br>
+      <input type="submit" value="提交">
+  </form>
+</body>
+</html>

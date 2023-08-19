@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学生列表</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <style>
+        h2{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container mt-3">
+    <h2 class="">学生列表</h2>
+    <button type="button" class="btn btn-primary addBtn" data-bs-toggle="modal" data-bs-target="#addModal">
+        新增
+    </button>
+
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+    </table>
+
+</div>
+
+<!-- 添加-模态框 -->
+<div class="modal fade" id="addModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">新增学生</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <form action="../doAdd" method="post">
+            <!-- 模态框内容 -->
+            <div class="modal-body">
+                <div class="container mt-3">
+
+                        <div class="mb-3 mt-3">
+                            <label for="newname" class="form-label">姓名:</label>
+                            <input type="text" class="form-control" id="newname" placeholder="Enter Name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newage" class="form-label">年龄:</label>
+                            <input type="number" class="form-control" id="newage" placeholder="Enter Age" name="age">
+                        </div>
+
+
+                </div>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 修改-模态框 -->
+<div class="modal fade" id="uptModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">修改学生</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <form action="../doUpt" method="post">
+                <!-- 模态框内容 -->
+                <div class="modal-body">
+                    <div class="container mt-3">
+
+
+                        <div class="mb-3 mt-3">
+                            <label for="id" class="form-label">编号:</label>
+                            <input type="text" class="form-control" id="id" readonly name="id" >
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="sname" class="form-label">姓名:</label>
+                            <input type="text" class="form-control" id="sname" placeholder="Enter Name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sage" class="form-label">年龄:</label>
+                            <input type="number" class="form-control" id="sage" placeholder="Enter Age" name="age">
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 删除-模态框 -->
+<div class="modal fade" id="confirmModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">警告</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- 模态框内容 -->
+            <div class="modal-body">
+                确定删除该学生吗？
+                <input type="hidden" id="delId" />
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="subBtn" data-bs-dismiss="modal">确定</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /*文档就绪事件*/
+    $(function(){
+        //jQuery-发送Ajax请求：获取所有学生信息
+        $.ajax({
+            url:"../findAll",
+            success:function(result){
+                console.log(typeof(result));
+                console.log(result.length);
+                for (let i = 0; i < result.length; i++) {
+                    $("tbody").append("<tr>\n" +
+                        "                <td>"+result[i].id+"</td>\n" +
+                        "                <td>"+result[i].name+"</td>\n" +
+                        "                <td>"+result[i].age+"</td>\n" +
+                        "                <td>\n" +
+                        "                    <button type=\"button\" data-bs-toggle=\"modal\" data-bs-target=\"#uptModal\"  class='btn btn-primary uptBtn'>修改</button>\n" +
+                        "                    <button type=\"button\" data-bs-toggle=\"modal\" data-bs-target=\"#confirmModal\" class=\"btn btn-danger delBtn\">删除</button>\n" +
+                        "                </td>\n" +
+                        "            </tr>");
+                }
+
+            }
+        });
+
+        //删除按钮的点击事件
+        $("#subBtn").click(function () {
+            $(window).attr('location',"../doDel?id="+$("#delId").val());
+        });
+    });
+
+    /*
+    注意：jQuery无法给动态生成的按钮添加点击事件
+    需要用如下方式，才可添加上点击事件
+    */
+    /*给修改按钮添加点击事件*/
+    $(document).on("click",".uptBtn",function (){
+        let tr = $(this).parents("tr");
+        let id = tr.children("td:first").html();
+        $("#id").val(id);
+        //根据id发送ajax,查询其他信息
+        $.ajax({
+            url:"../toUpt?id="+id,
+            success:function(result){
+                $("#sname").val(result["name"]);
+                $("#sage").val(result["age"]);
+            }
+        });
+    });
+
+    /*给删除按钮添加点击事件*/
+    $(document).on("click",".delBtn",function (){
+        let tr = $(this).parents("tr");
+        let id = tr.children("td:first").html();
+        console.log(id);
+        $("#delId").val(id);
+    });
+
+</script>
+</body>
+</html>
