@@ -154,7 +154,7 @@
     function refreashTalbe() {
         //Axios-发送Ajax请求：获取所有学生信息
         axios.post('../findAll').then(function (response) {
-            console.log(typeof response.data);
+            //操作DOM,显示数据
             var infos = "";
             for (let i = 0; i < response.data.length; i++) {
                 infos += "<tr>\n" +
@@ -201,9 +201,11 @@
 
     //给添加按钮 添加点击事件处理
     document.getElementById("addBtn").onclick = function () {
+        //取数据
         let newname = document.getElementById("newname").value;
         let newage = document.getElementById("newage").value;
         let student = {name:newname,age:newage};
+        //发请求
         axios.post("../doAdd",student).then(function (resp) {
             refreashTalbe();
         })
@@ -211,11 +213,12 @@
 
     //给提交修改按钮 添加点击事件处理
     document.getElementById("doUpt").onclick = function () {
+        //取数据
         let sid = document.getElementById("sid").value;
         let sname = document.getElementById("sname").value;
         let sage = document.getElementById("sage").value;
         let student = {id:sid,name:sname,age:sage};
-        console.log(student)
+        //发请求
         axios.post("../doUpt",student).then(function (resp) {
             refreashTalbe();
         })
@@ -223,8 +226,9 @@
 
     //给提交删除请求按钮 添加点击事件处理
     document.getElementById("delBtn").onclick = function () {
+        //取数据
         let id = document.getElementById("delId").value;
-        console.log(id)
+        //发请求
         axios.post("../doDel","id="+id).then(function (resp) {
             refreashTalbe();
         })
