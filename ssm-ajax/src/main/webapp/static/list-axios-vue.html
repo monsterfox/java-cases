@@ -24,19 +24,19 @@
             新增
         </button>
 
-        <table class="table">
+        <table class="table text-center">
             <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Age</th>
-                <th>操作</th>
+                <th class="col-2">操作</th>
             </tr>
             </thead>
             <tbody>
 
-                <tr v-for="stu in students">
-                    <td>{{stu.id}}</td>
+                <tr v-for="(stu,i) in students">
+                    <td>{{i+1}}</td>
                     <td>{{stu.name}}</td>
                     <td>{{stu.age}}</td>
                     <td>
@@ -148,6 +148,7 @@
             toAddStudent(){
                 this.ifModify = 0;
                 this.dialogTitle="新增学生";
+                this.subUrl = "../doAdd";
             },
             modifyStudent(){
                 var _this = this;
