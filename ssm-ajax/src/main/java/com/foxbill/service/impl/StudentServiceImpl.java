@@ -3,6 +3,8 @@ package com.foxbill.service.impl;
 import com.foxbill.mapper.StudentMapper;
 import com.foxbill.domain.Student;
 import com.foxbill.service.StudentService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,4 +44,14 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> findAllStudents() {
         return studentMapper.selectAllStudents();
     }
+
+    @Override
+    public PageInfo<Student> findStudentsByPage(int pageNum) {
+        PageHelper.startPage(pageNum,2);
+        List<Student> list = studentMapper.selectAllStudents();
+        PageInfo<Student> pageInfo = new PageInfo<>(list, 3);
+        return pageInfo;
+    }
+
+
 }

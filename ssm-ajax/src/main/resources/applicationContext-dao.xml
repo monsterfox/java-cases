@@ -20,6 +20,17 @@
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:mybatis-config.xml" />
         <property name="typeAliasesPackage" value="com.foxbill.domain" />
+        <property name="plugins">
+            <list>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value>
+                            helperDialect = mysql
+                        </value>
+                    </property>
+                </bean>
+            </list>
+        </property>
     </bean>
 
     <!--配置扫描Mapper-->

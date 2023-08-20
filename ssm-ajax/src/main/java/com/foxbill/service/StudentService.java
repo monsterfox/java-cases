@@ -1,6 +1,8 @@
 package com.foxbill.service;
 
 import com.foxbill.domain.Student;
+import com.github.pagehelper.PageInfo;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -11,4 +13,5 @@ public interface StudentService {
 
     Student findStudentById(int id);
     List<Student> findAllStudents();
+    PageInfo<Student> findStudentsByPage(int papeNum);
 }

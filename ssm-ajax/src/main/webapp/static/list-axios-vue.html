@@ -19,7 +19,7 @@
 <body>
 <div id="app">
     <div class="container mt-3">
-        <h2 class="">学生列表</h2>
+        <h2 class="">学生列表{{this.pageNum}}</h2>
         <button type="button" class="btn btn-primary addBtn" @click="toAddStudent" data-bs-toggle="modal" data-bs-target="#modifyModal">
             新增
         </button>
@@ -47,6 +47,13 @@
 
             </tbody>
         </table>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li v-for="p in pageInfo.navigatepageNums" class="page-item" :class="{'active':(pageNum == p)}">
+                <a class="page-link" href="#" @click="jumpPage(p)">{{p}}</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
 
     </div>
 
@@ -132,7 +139,10 @@
                 dialogTitle:"",
                 subUrl:"",
                 ifModify:'',
-                delId:''
+                delId:'',
+                pageNum:1,
+                pageInfo:{},
+                isActive:'active'
             }
         },
         methods: {
@@ -140,9 +150,10 @@
                 var _this = this;
                 axios({
                     method:"get",
-                    url:"../findAll"
+                    url:"../findbyPage?pageNum="+_this.pageNum
                 }).then(function (resp) {
-                    _this.students = resp.data;
+                    _this.pageInfo = resp.data;
+                    _this.students = resp.data.list;
                 })
             },
             toAddStudent(){
@@ -171,10 +182,17 @@
                 axios.post("../doDel","id="+this.delId).then(function (resp) {
                     _this.refreashTalbe();
                 })
+            },
+            jumpPage(p){
+                this.pageNum = p;
+                this.refreashTalbe();
             }
         },
         mounted() {
             this.refreashTalbe()
+        },
+        computed:{
+
         }
     })
 

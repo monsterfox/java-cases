@@ -2,11 +2,13 @@ package com.foxbill.controller;
 
 import com.foxbill.domain.Student;
 import com.foxbill.service.StudentService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -28,6 +30,13 @@ public class StudentController {
     public Object findAllStudents(){
         List<Student> list = studentService.findAllStudents();
         return list;
+    }
+
+    @RequestMapping("/findbyPage")
+    @ResponseBody  //返回json
+    public Object findStudentsByPage(@RequestParam(defaultValue = "1") int pageNum){
+        PageInfo<Student> pageInfo = studentService.findStudentsByPage(pageNum);
+        return pageInfo;
     }
 
     @RequestMapping("/doAdd")

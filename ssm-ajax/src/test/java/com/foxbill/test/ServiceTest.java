@@ -3,6 +3,7 @@ package com.foxbill.test;
 import com.foxbill.domain.Student;
 import com.foxbill.mapper.StudentMapper;
 import com.foxbill.service.StudentService;
+import com.github.pagehelper.PageInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,9 @@ public class ServiceTest {
 
     @Test
     public void test01(){
-        List<Student> list = studentService.findAllStudents();
-        list.forEach(student -> System.out.println(student));
+        PageInfo<Student> pageInfo = studentService.findStudentsByPage(2);
+        System.out.println(pageInfo);
+        pageInfo.getList().forEach(student -> System.out.println(student));
     }
 
 }
