@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 public class MyBatisConfig {
 
+    //配置SqlSessionFactoryBean
     @Bean("sqlSessionFactory")
     public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource){
 
