@@ -240,17 +240,17 @@
                 }
             },
             mounted(){
-                this.searchByPage();
+                this.multiSearchByPage();
             },
             methods: {
-                searchByPage(pageNum,pageSize){
+/*                searchByPage(pageNum,pageSize){
                     if (pageNum == undefined){pageNum = 1}
                     if (pageSize == undefined){pageSize = 5}
                     let _this = this;
                     axios.get("findByPage?pageNum="+pageNum+"&pageSize="+pageSize).then(function (resp) {
                         _this.pageInfo = resp.data;
                     });
-                },
+                },*/
                 multiSearchByPage(pageNum,pageSize){
                     if (pageNum == undefined){
                         this.formBrand.pageNum = 1
@@ -288,7 +288,7 @@
                                 message: '恭喜你，'+oper+'成功',
                                 type: 'success'
                             });
-                            _this.searchByPage();
+                            _this.multiSearchByPage();
                         }
                     })
 
@@ -307,7 +307,7 @@
                                 message: '恭喜你，删除成功',
                                 type: 'success'
                             });
-                            _this.searchByPage();
+                            _this.multiSearchByPage();
                         }
                     })
                 },

@@ -16,7 +16,7 @@ public class BrandController {
     private BrandService brandService;
 
 
-    @RequestMapping("/findAll")
+/*    @GetMapping("/findAll")
     public List<Brand> findAll(){
         return brandService.findAll();
     }
@@ -25,7 +25,7 @@ public class BrandController {
     public PageInfo<Brand> findByPage(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "5") int pageSize){
         PageInfo<Brand> pageInfo = brandService.pageSearch(pageNum, pageSize);
         return pageInfo;
-    }
+    }*/
 
     @PostMapping("/addBrand")
     public boolean addBrand(@RequestBody Brand brand){
