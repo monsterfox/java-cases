@@ -17,13 +17,13 @@ import java.util.List;
 public class MyBatisAdvancedTest {
 
     SqlSession sqlSession = MyBatisUtil.getSqlSesssion();
+    StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 
     @Test
     public void test00() throws IOException {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
-        //student.setName("张三"); //如果在映射文件中只用if,在没有设置name时，拼接的sql会有错
-        student.setAge(42);
+        student.setName("马云");
+        //student.setAge(50);
 
         List<Student> list = mapper.queryStudent0(student);
         list.forEach(System.out::println);
@@ -31,7 +31,6 @@ public class MyBatisAdvancedTest {
 
     @Test
     public void test01() {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
         student.setName("张三"); //如果在映射文件中只用if,在没有设置name时，拼接的sql会有错
         student.setAge(42);
@@ -41,7 +40,6 @@ public class MyBatisAdvancedTest {
     }
     @Test
     public void test02() {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
         student.setName("张三");
         student.setAge(42);
@@ -51,7 +49,6 @@ public class MyBatisAdvancedTest {
     }
     @Test
     public void test03() {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
         student.setId(1);
 //        student.setName("张三");
@@ -63,7 +60,6 @@ public class MyBatisAdvancedTest {
     }
     @Test
     public void test04(){
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
         student.setId(1);
         student.setName("张三");
@@ -76,7 +72,6 @@ public class MyBatisAdvancedTest {
 
     @Test
     public void test05() {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
         student.setName("张三");
         student.setAge(12);
@@ -87,7 +82,6 @@ public class MyBatisAdvancedTest {
 
     @Test
     public void test06() {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
         student.setId(1);
         student.setName("张三");
@@ -99,7 +93,6 @@ public class MyBatisAdvancedTest {
 
     @Test
     public void test07() {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
         student.setId(1);
         student.setName("张三");
@@ -110,7 +103,6 @@ public class MyBatisAdvancedTest {
     }
     @Test
     public void test08() {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         List<Integer> idList = new ArrayList<>();
         idList.add(1);
         idList.add(2);
@@ -122,9 +114,16 @@ public class MyBatisAdvancedTest {
 
     @Test
     public void test09() {
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        Student student = new Student();
+        student.setName("三");
 
-        List<Student> list = mapper.queryStudentBind("三");
+        List<Student> list = mapper.queryStudentBind(student);
+        list.forEach(System.out::println);
+    }
+
+    @Test
+    public void test10() {
+        List<Student> list = mapper.queryStudentBind2("三");
         list.forEach(System.out::println);
     }
 }

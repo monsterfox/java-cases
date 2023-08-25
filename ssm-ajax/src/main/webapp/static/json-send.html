@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function send(){
+            var jsObject = {"username":"tomcat","sex":"male"};
+            axios.post("../reciveJson",jsObject).then(function (resp) {
+                console.log(typeof resp.data);
+                document.getElementById("msg").innerHTML = resp.data.username +"-"+ resp.data.sex;
+            })
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="从前端发送JSON到服务端" onclick="send()" /><br>
+    <div id="msg"></div>
+</body>
+</html>

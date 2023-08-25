@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function sendReq()
+        {
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET","../testajax",true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>这是测试Ajax的页面</h1>
+
+    <a href="../testajax">同步-访问TestAjax</a><br>
+
+    <hr />
+    <div id="myDiv">div初始内容</div>
+    <input type="button" onclick="sendReq()" value="异步-通过Ajax访问TestAjax"><br>
+
+    <hr />
+    <textarea rows="30" cols="180"> </textarea>
+</body>
+</html>

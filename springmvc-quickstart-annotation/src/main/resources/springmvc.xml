@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--1.配置组件扫描器-->
+    <context:component-scan base-package="com.foxbill.controller" />
+
+    <!--2.配置视图解析器-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--3.启动注解启动-->
+    <!--https://ask.csdn.net/questions/374373-->
+    <!--说明：不配置注解驱动，程序可以运行，但是使用的是SpringMVC配置的默认的映射器和适配器，
+        默认的已经过时了，所以，建议配置注解驱动，配置新的映射器和适配器。-->
+    <mvc:annotation-driven />
+</beans>

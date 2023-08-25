@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ambow.mapper.BrandMapper">
+
+  <resultMap id="brandResultMap" type="com.ambow.pojo.Brand">
+    <result property="brandName" column="brand_name" />
+    <result property="companyName" column="company_name" />
+  </resultMap>
+
+    <select id="multiselect" parameterType="com.ambow.pojo.Brand" resultMap="brandResultMap">
+
+      <choose>
+        <when test="companyName">
+          <bind name="companyNameKey" value="'%'+companyName+'%'"/>
+        </when>
+        <otherwise>
+          <bind name="companyNameKey" value="'%%'"/>
+        </otherwise>
+      </choose>
+      <choose>
+        <when test="brandName">
+          <bind name="brandNameKey" value="'%'+brandName+'%'"/>
+        </when>
+        <otherwise>
+          <bind name="brandNameKey" value="'%%'"/>
+        </otherwise>
+      </choose>
+
+      select * from tb_brand
+        <where>
+          <if test="null != status">
+            and status = #{status}
+          </if>
+          <if test="null != companyName and '' != companyName">
+            and company_name like #{companyNameKey}
+          </if>
+          <if test="null != brandName and '' != brandName">
+            and brand_name like #{brandNameKey}
+          </if>
+        </where>
+    </select>
+
+    <!--  <delete id="deleteByBatch">
+        delete from tb_brand where id in
+        <foreach collection='list' open='(' close=')' separator=',' item='id'>
+            #{id}
+        </foreach>
+      </delete>-->
+
+
+</mapper>

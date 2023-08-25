@@ -13,7 +13,7 @@ public class TransTest {
 
         GoodsService goodsService = (GoodsService) ctx.getBean("goodsService");
 //        goodsService.buy(1001,10); //正常购买
-//        goodsService.buy(1005,10); //无此商品
-        goodsService.buy(1001,200); //库存不足
+        goodsService.buy(1005,10); //无此商品
+        //goodsService.buy(1001,200); //库存不足
     }
 }

@@ -11,7 +11,7 @@
         <!--配置二级缓存的全局开关-->
         <setting name="cacheEnabled" value="false"/>
         <!--开启数据库日志检测-->
-        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="logImpl" value="LOG4J"/>
     </settings>
     <!--包名简化缩写-->
     <typeAliases>

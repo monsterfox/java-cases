@@ -25,18 +25,19 @@
             <version>5.2.7.RELEASE</version>
         </dependency>
         <!--如果使用tomcat7的maven插件可能会报错：A child container failed during start
-            可以直接用外部的Tomcat服务来启动
+            可能是因为javax.servlet-api的scope没有设置为provided。导致跟tomcat的依赖冲突。
         -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.26</version>
         </dependency>
     </dependencies>
 

@@ -27,12 +27,13 @@
         <module>spring-web01</module>
         <module>spring-web02-listener</module>
         <module>springmvc-request-param</module>
-        <module>spring-ssm</module>
         <module>springmvc-interceptor</module>
         <module>springmvc-fileupload</module>
-        <module>spring-ssm-pure-annotation</module>
-        <module>spring-aop-leadinto3</module>
-        <module>spring-aop-leadinto4</module>
+        <module>spring-aspectj-quickstart-xml</module>
+        <module>spring-aspectj-quickstart-annotation</module>
+        <module>ssm</module>
+        <module>ssm-pure-annotation</module>
+        <module>ssm-ajax</module>
         <module>springboot-core-config</module>
         <module>springboot-mybatis</module>
         <module>springboot-mybatisplus</module>
@@ -45,9 +46,24 @@
         <module>java-jdbc-pool</module>
         <module>spring-ioc-underlying-principle</module>
         <module>design-pattern</module>
+        <module>mybatis-generator</module>
+        <module>mybatis-quickstart</module>
+        <module>mybatis-proxy</module>
+        <module>mybatis-association-mapping-1to1</module>
+        <module>mybatis-association-mapping-1-m</module>
+        <module>mybatis-association-mapping-m-n</module>
+        <module>mybatis-annotation</module>
+        <module>spring-leadin</module>
+        <module>spring-trans-sale-propagation</module>
+        <module>spring-jdbctemplate</module>
+        <module>springmvc-quickstart-xml-principle</module>
+        <module>springmvc-quickstart-annotation</module>
+        <module>springmvc-response-param</module>
+        <module>springboot-vue-elment-brands</module>
     </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>

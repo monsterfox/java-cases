@@ -1,0 +1,3 @@
+com\foxbill\domain\User.class
+com\foxbill\mapper\StudentMapper.class
+com\foxbill\controller\AjaxController.class

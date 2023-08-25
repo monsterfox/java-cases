@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--1.配置处理器映射器,确定一种请求-相应的映射规则-->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+    <!--2.配置处理器适配器,配置对处理器的handleRequest()方法的调用-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+    <!--3.配置自定义控制器，一条具体的映射关系，name对应客户端URL请求，class对应服务端响应程序-->
+    <bean name="/first" class="com.foxbill.controller.FirstController" />
+
+    <!--上述类型的1.处理器映射器是默认的，同样上述类型的2.处理器适配器也是默认的，两者均可省略不要-->
+
+    <!--4.配置视图解析器-->
+    <!--说明：视图解析器不是必须的，如果没有，则控制层的返回值需要从"main"改为"/WEB-INF/jsp/main.jsp",即必须写完整路径的视图名称。-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+</beans>

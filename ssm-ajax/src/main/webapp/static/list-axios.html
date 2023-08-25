@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学生列表</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <style>
+        h2{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container mt-3">
+    <h2 class="">学生列表</h2>
+    <button type="button" class="btn btn-primary addBtn" data-bs-toggle="modal" data-bs-target="#addModal">
+        新增
+    </button>
+
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+    </table>
+
+</div>
+
+<!-- 添加-模态框 -->
+<div class="modal fade" id="addModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">新增学生</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <form action="" method="post">
+            <!-- 模态框内容 -->
+            <div class="modal-body">
+                <div class="container mt-3">
+
+                        <div class="mb-3 mt-3">
+                            <label for="newname" class="form-label">姓名:</label>
+                            <input type="text" class="form-control" id="newname" placeholder="Enter Name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newage" class="form-label">年龄:</label>
+                            <input type="number" class="form-control" id="newage" placeholder="Enter Age" name="age">
+                        </div>
+
+                </div>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" id="addBtn" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 修改-模态框 -->
+<div class="modal fade" id="uptModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">修改学生</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <form action="" method="post">
+                <!-- 模态框内容 -->
+                <div class="modal-body">
+                    <div class="container mt-3">
+
+
+                        <div class="mb-3 mt-3">
+                            <label for="sid" class="form-label">编号:</label>
+                            <input type="text" class="form-control" id="sid" readonly name="sid" >
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="sname" class="form-label">姓名:</label>
+                            <input type="text" class="form-control" id="sname" placeholder="Enter Name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sage" class="form-label">年龄:</label>
+                            <input type="number" class="form-control" id="sage" placeholder="Enter Age" name="age">
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="submit" id="doUpt" class="btn btn-primary" data-bs-dismiss="modal">提交</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 删除-模态框 -->
+<div class="modal fade" id="confirmModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">警告</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- 模态框内容 -->
+            <div class="modal-body">
+                确定删除该学生吗？
+                <input type="hidden" id="delId" />
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="delBtn" data-bs-dismiss="modal">确定</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //定义刷新表格的函数，通过ajax请求所有学生的数据，然后更新表格
+    function refreashTalbe() {
+        //Axios-发送Ajax请求：获取所有学生信息
+        axios.post('../findAll').then(function (response) {
+            //操作DOM,显示数据
+            var infos = "";
+            for (let i = 0; i < response.data.length; i++) {
+                infos += "<tr>\n" +
+                    "                <td>"+response.data[i].id+"</td>\n" +
+                    "                <td>"+response.data[i].name+"</td>\n" +
+                    "                <td>"+response.data[i].age+"</td>\n" +
+                    "                <td>\n" +
+                    "                    <button type=\"button\" data-bs-toggle=\"modal\" data-bs-target=\"#uptModal\"  class='btn btn-primary uptBtn'>修改</button>\n" +
+                    "                    <button type=\"button\" data-bs-toggle=\"modal\" data-bs-target=\"#confirmModal\" class=\"btn btn-danger delBtn\">删除</button>\n" +
+                    "                </td>\n" +
+                    "            </tr>";
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = infos;
+
+            //给修改按钮 添加点击事件处理
+            let uptBtns = document.getElementsByClassName("uptBtn");
+            for (let i = 0; i < uptBtns.length; i++) {
+                uptBtns[i].onclick = function () {
+                    let id = this.parentNode.parentNode.firstElementChild.innerHTML;
+                    axios.post("../toUpt","id="+id).then(function (resp) {
+                        let student = resp.data;
+                        document.getElementById("sid").value = student.id;
+                        document.getElementById("sname").value = student.name;
+                        document.getElementById("sage").value = student.age;
+                    })
+                }
+            }
+            //给删除按钮 添加点击事件处理
+            let delBtns = document.getElementsByClassName("delBtn");
+            for (let i = 0; i < delBtns.length; i++) {
+                delBtns[i].onclick = function () {
+                    let id = this.parentNode.parentNode.firstElementChild.innerHTML;
+                    document.getElementById("delId").value = id;
+                }
+            }
+
+        })
+    }
+
+    //给页面加载事件 添加处理函数
+    window.onload = function () {
+        refreashTalbe();
+    }
+
+    //给添加按钮 添加点击事件处理
+    document.getElementById("addBtn").onclick = function () {
+        //取数据
+        let newname = document.getElementById("newname").value;
+        let newage = document.getElementById("newage").value;
+        let student = {name:newname,age:newage};
+        //发请求
+        axios.post("../doAdd",student).then(function (resp) {
+            refreashTalbe();
+        })
+    }
+
+    //给提交修改按钮 添加点击事件处理
+    document.getElementById("doUpt").onclick = function () {
+        //取数据
+        let sid = document.getElementById("sid").value;
+        let sname = document.getElementById("sname").value;
+        let sage = document.getElementById("sage").value;
+        let student = {id:sid,name:sname,age:sage};
+        //发请求
+        axios.post("../doUpt",student).then(function (resp) {
+            refreashTalbe();
+        })
+    }
+
+    //给提交删除请求按钮 添加点击事件处理
+    document.getElementById("delBtn").onclick = function () {
+        //取数据
+        let id = document.getElementById("delId").value;
+        //发请求
+        axios.post("../doDel","id="+id).then(function (resp) {
+            refreashTalbe();
+        })
+    }
+
+</script>
+</body>
+</html>

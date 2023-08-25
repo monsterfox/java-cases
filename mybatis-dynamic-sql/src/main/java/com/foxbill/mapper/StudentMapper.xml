@@ -133,4 +133,13 @@
             where name like #{bindName}
         </if>
     </select>
+
+    <select id="queryStudentBind2" resultType="student">
+        <bind name="bindName" value="'%'+keyword+'%'"/>
+        select * from student
+        <!--注意：判断条件中的参数名，也要用接口中定义的keyword-->
+        <if test="null != keyword">
+            where name like #{bindName}
+        </if>
+    </select>
 </mapper>

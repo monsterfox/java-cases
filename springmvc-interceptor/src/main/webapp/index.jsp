@@ -12,5 +12,6 @@
 </head>
 <body>
     <h1>Index</h1>
+    <a href="${pageContext.request.contextPath}/login">登录</a><br>
 </body>
 </html>

@@ -9,6 +9,12 @@ import com.foxbill.service.GoodsService;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+import java.sql.SQLException;
+//实际上，rollbackFor中指定的类，都是RuntimeException的子类，属于非受查异常，默认就会回滚。因此，下面的rollbackFor属性可以省略
+@Transactional(propagation = Propagation.REQUIRED,
+        rollbackFor = {NullPointerException.class,
+        NotEnoughException.class})
 public class GoodsServiceImpl implements GoodsService {
 
     private GoodsDao goodsDao;
@@ -22,9 +28,7 @@ public class GoodsServiceImpl implements GoodsService {
         this.saleDao = saleDao;
     }
 
-    @Transactional(propagation = Propagation.REQUIRED,
-            rollbackFor = {NullPointerException.class,
-                            NotEnoughException.class})
+
     @Override
     public void buy(Integer goodsId, Integer amount) {
         Sale sale = new Sale();
@@ -44,5 +48,12 @@ public class GoodsServiceImpl implements GoodsService {
         goods.setId(goodsId);
         goodsDao.updateGoods(goods);
 
+        /*抛出受查异常，事务会提交*/
+/*        try {
+            throw new IOException();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("异常处理了");
+        }*/
     }
 }

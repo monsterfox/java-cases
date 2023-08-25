@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foxbill.mapper.MyClassMapper">
+
+    <resultMap id="myClassMap" type="myClass">
+        <id column="cid" property="id" />
+        <result column="class_name" property="className" />
+        <collection property="student" ofType="student">
+            <id column="sid" property="id" />
+            <result column="name" property="name" />
+        </collection>
+    </resultMap>
+
+
+    <select id="selectMyClass" resultMap="myClassMap">
+        SELECT c.id cid,class_name,s.id sid,`name`
+        FROM myclass c JOIN student s
+                            ON c.id = s.cid
+    </select>
+
+
+</mapper>

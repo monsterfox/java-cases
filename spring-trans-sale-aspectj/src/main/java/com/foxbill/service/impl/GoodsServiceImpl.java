@@ -22,9 +22,6 @@ public class GoodsServiceImpl implements GoodsService {
         this.saleDao = saleDao;
     }
 
-    @Transactional(propagation = Propagation.REQUIRED,
-            rollbackFor = {NullPointerException.class,
-                            NotEnoughException.class})
     @Override
     public void buy(Integer goodsId, Integer amount) {
         Sale sale = new Sale();
