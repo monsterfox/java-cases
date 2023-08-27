@@ -29,9 +29,9 @@ import java.util.Properties;
 @Configuration
 // 1.组件扫描
 @ComponentScan(basePackages = "com.foxbill")
-// 5.开启注解驱动
+// 5.开启注解驱动 开启SpringMVC多项辅助功能，如Json数据进行自动类型转换等
 @EnableWebMvc // 开启MVC注解驱动
-public class WebConfig implements WebMvcConfigurer {
+public class SpringMVCConfig implements WebMvcConfigurer {
 
     // 2.配置生成模板解析器
     /*

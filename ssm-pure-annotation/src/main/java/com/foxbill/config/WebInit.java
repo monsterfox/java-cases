@@ -27,7 +27,7 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
      */
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{WebConfig.class};
+        return new Class[]{SpringMVCConfig.class};
     }
 
     /**
